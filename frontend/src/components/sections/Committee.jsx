@@ -22,6 +22,7 @@ const COMMITTEE = [
     index: "02",
     img: "/oxford-card-room/committee/Atel PFP.png",
     imgPosition: "object-center",
+    imgStyle: { objectFit: "contain", objectPosition: "center", filter: "grayscale(1) contrast(1.05) brightness(0.95)" },
   },
 ];
 
