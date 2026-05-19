@@ -9,7 +9,7 @@ const COMMITTEE = [
     bio: "Mirsaid founded The Oxford Card Room with a straightforward ambition: to create a student poker society that could hold its own against the best in the world. He leads on membership, partnerships, and event production.",
     initial: "MA",
     index: "01",
-    img: "/oxford-card-room/committee/president.jpg",
+    img: "/oxford-card-room/committee/MIRSAID.jpg",
   },
   {
     role: "Vice President",
@@ -18,7 +18,7 @@ const COMMITTEE = [
     bio: "Atel runs the lecture programme, manages member onboarding, and handles all correspondence. He's also reliably the first person you'll meet at a Beginners' Table — and the most patient about explaining pot odds.",
     initial: "AR",
     index: "02",
-    img: "/oxford-card-room/committee/vp.jpg",
+    img: "/oxford-card-room/committee/Atel PFP.png",
   },
 ];
 
