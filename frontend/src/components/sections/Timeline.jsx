@@ -86,14 +86,14 @@ export default function Timeline() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-20">
           <Reveal as="div" className="lg:col-span-5">
             <p className="font-body text-[9px] uppercase tracking-[0.55em] text-[#C6A76A] mb-8">
-              :03 — The Season
+              :03 — Michaelmas Term Card
             </p>
             <h2
               className="font-display text-[#F0EAD6] leading-[0.95] tracking-tight font-bold"
               style={{ fontSize: "clamp(40px, 6vw, 78px)" }}
             >
               Michaelmas<br />
-              <span className="italic font-normal text-[#C6A76A]">Term 2027.</span>
+              <span className="italic font-normal text-[#C6A76A]">Term Card.</span>
             </h2>
           </Reveal>
           <Reveal as="div" delay={130} className="lg:col-span-5 lg:col-start-8 lg:pt-2 flex items-end">
@@ -105,94 +105,28 @@ export default function Timeline() {
           </Reveal>
         </div>
 
-        {/* ── Desktop vertical timeline ──────────────────── */}
+        {/* ── Desktop: alternating timeline (odd left, even right, one per row) ── */}
         <div className="hidden lg:block relative">
 
-          {/* Central rail */}
+          {/* Central spine */}
           <div
-            className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2"
-            style={{
-              background: "linear-gradient(to bottom, transparent, rgba(198,167,106,0.35) 8%, rgba(198,167,106,0.35) 92%, transparent)"
-            }}
+            className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 pointer-events-none"
+            style={{ background: "linear-gradient(to bottom, transparent, rgba(198,167,106,0.32) 6%, rgba(198,167,106,0.32) 94%, transparent)" }}
           />
 
-          <div className="space-y-0">
+          <div className="grid grid-cols-2">
             {WEEKS.map((w, i) => {
               const isLeft = i % 2 === 0;
               return (
-                <Reveal key={w.week} delay={i * 60} as="div" className="relative grid grid-cols-2 gap-8">
-
-                  {/* Left side */}
-                  <div className={`flex ${isLeft ? "justify-end" : "justify-start"} ${isLeft ? "" : "col-start-2"}`}>
-                    {isLeft && (
-                      <div
-                        data-testid={`timeline-week-${w.week}`}
-                        className={`relative max-w-sm w-full mr-8 cursor-default group ${i > 0 ? "-mt-2" : ""}`}
-                        onMouseEnter={() => setHover(w.week)}
-                        onMouseLeave={() => setHover(null)}
-                      >
-                        <div
-                          className={`relative px-6 py-5 transition-all duration-300 ${
-                            w.flagship
-                              ? "border border-[#C6A76A]/40 bg-[#0c0d16] group-hover:border-[#C6A76A]/70"
-                              : "border border-[#F0EAD6]/[0.07] bg-[#050816] group-hover:border-[#F0EAD6]/15"
-                          }`}
-                        >
-                          <p
-                            className={`font-body text-[8px] uppercase tracking-[0.5em] mb-2 ${
-                              w.flagship ? "text-[#C6A76A]" : "text-[#F0EAD6]/25"
-                            }`}
-                          >
-                            {w.flagship ? "★ Flagship · " : ""}{w.date}
-                          </p>
-                          <h3
-                            className={`font-display font-bold tracking-tight leading-tight text-lg ${
-                              w.flagship ? "text-[#C6A76A]" : "text-[#F0EAD6]/70"
-                            }`}
-                          >
-                            {w.title}
-                          </h3>
-                          <p className="font-body text-[10px] text-[#F0EAD6]/30 mt-1 uppercase tracking-[0.3em]">
-                            {w.sub}
-                          </p>
-
-                          {/* Expand on hover */}
-                          <div
-                            className={`overflow-hidden transition-all duration-500 ${
-                              hover === w.week ? "max-h-32 opacity-100 mt-4" : "max-h-0 opacity-0"
-                            }`}
-                          >
-                            <p className="font-body text-[#F0EAD6]/40 text-[13px] leading-relaxed border-t border-[#F0EAD6]/[0.07] pt-4">
-                              {w.detail}
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Connector line to rail */}
-                        <div className="absolute right-0 top-1/2 w-8 h-px bg-[#C6A76A]/20 translate-x-full" />
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Node on the rail */}
-                  <div
-                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
-                    data-testid={`timeline-node-${w.week}`}
-                  >
-                    <div
-                      className={`transition-all duration-300 ${
-                        w.flagship
-                          ? "w-3 h-3 bg-[#C6A76A] shadow-[0_0_16px_4px_rgba(198,167,106,0.4)] rotate-45"
-                          : "w-2 h-2 bg-[#1e2235] border border-[#C6A76A]/40 rounded-full"
-                      } ${hover === w.week ? "scale-150" : ""}`}
-                    />
-                  </div>
-
-                  {/* Right side */}
-                  {!isLeft && (
+                <div
+                  key={w.week}
+                  style={{ gridColumn: isLeft ? "1" : "2", gridRow: i + 1 }}
+                  className={`py-3 ${isLeft ? "pr-10" : "pl-10"}`}
+                >
+                  <Reveal delay={i * 50} as="div">
                     <div
                       data-testid={`timeline-week-${w.week}`}
-                      className={`relative max-w-sm w-full ml-8 cursor-default group ${i > 0 ? "-mt-2" : ""}`}
+                      className="relative cursor-default group"
                       onMouseEnter={() => setHover(w.week)}
                       onMouseLeave={() => setHover(null)}
                     >
@@ -203,42 +137,36 @@ export default function Timeline() {
                             : "border border-[#F0EAD6]/[0.07] bg-[#050816] group-hover:border-[#F0EAD6]/15"
                         }`}
                       >
-                        <p
-                          className={`font-body text-[8px] uppercase tracking-[0.5em] mb-2 ${
-                            w.flagship ? "text-[#C6A76A]" : "text-[#F0EAD6]/25"
-                          }`}
-                        >
+                        <p className={`font-body text-[8px] uppercase tracking-[0.5em] mb-2 ${w.flagship ? "text-[#C6A76A]" : "text-[#F0EAD6]/25"}`}>
                           {w.flagship ? "★ Flagship · " : ""}{w.date}
                         </p>
-                        <h3
-                          className={`font-display font-bold tracking-tight leading-tight text-lg ${
-                            w.flagship ? "text-[#C6A76A]" : "text-[#F0EAD6]/70"
-                          }`}
-                        >
+                        <h3 className={`font-display font-bold tracking-tight leading-tight text-lg ${w.flagship ? "text-[#C6A76A]" : "text-[#F0EAD6]/70"}`}>
                           {w.title}
                         </h3>
                         <p className="font-body text-[10px] text-[#F0EAD6]/30 mt-1 uppercase tracking-[0.3em]">
                           {w.sub}
                         </p>
-                        <div
-                          className={`overflow-hidden transition-all duration-500 ${
-                            hover === w.week ? "max-h-32 opacity-100 mt-4" : "max-h-0 opacity-0"
-                          }`}
-                        >
+                        <div className={`overflow-hidden transition-all duration-500 ${hover === w.week ? "max-h-32 opacity-100 mt-4" : "max-h-0 opacity-0"}`}>
                           <p className="font-body text-[#F0EAD6]/40 text-[13px] leading-relaxed border-t border-[#F0EAD6]/[0.07] pt-4">
                             {w.detail}
                           </p>
                         </div>
                       </div>
-                      {/* Connector line */}
-                      <div className="absolute left-0 top-1/2 w-8 h-px bg-[#C6A76A]/20 -translate-x-full" />
+
+                      {/* Dot node at the spine edge */}
+                      <div
+                        data-testid={`timeline-node-${w.week}`}
+                        className={`absolute top-1/2 -translate-y-1/2 z-10 ${isLeft ? "right-0 translate-x-1/2" : "left-0 -translate-x-1/2"}`}
+                      >
+                        <div className={`transition-all duration-300 ${
+                          w.flagship
+                            ? "w-2.5 h-2.5 bg-[#C6A76A] shadow-[0_0_12px_3px_rgba(198,167,106,0.45)] rotate-45"
+                            : "w-1.5 h-1.5 bg-[#08090f] border border-[#C6A76A]/45 rounded-full"
+                        } ${hover === w.week ? "scale-150" : ""}`} />
+                      </div>
                     </div>
-                  )}
-
-                  {/* Spacer for the side without a card */}
-                  {isLeft && <div />}
-
-                </Reveal>
+                  </Reveal>
+                </div>
               );
             })}
           </div>

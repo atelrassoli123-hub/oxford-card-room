@@ -137,34 +137,47 @@ export default function Events() {
           /* Placeholder state while loading */
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#F0EAD6]/[0.04]">
             {[
-              { label: "The Knockout Night", sub: "Boxing & Poker · Flagship", badge: "Week IV", detail: "Three sanctioned bouts, a friendly book, and a four-table tournament. The Card Room's most anticipated evening." },
-              { label: "Members' Night", sub: "All Tables · Weekly", badge: "Every Week", detail: "Our standing evening. All three tables open simultaneously. Simply come, take your seat, and play." },
-              { label: "The Lecture Series", sub: "Theory & Practice", badge: "Fortnightly", detail: "Three lectures over the term — poker fundamentals, tournament play, and game theory. Open to all members." },
+              { label: "The Knockout Night", sub: "Boxing & Poker · Flagship", badge: "Week IV", detail: "Three sanctioned bouts, a friendly book, and a four-table tournament. The Card Room's most anticipated evening.", img: "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&q=80&w=1200", badgeColor: "#C6A76A" },
+              { label: "Members' Night", sub: "All Tables · Weekly", badge: "Every Week", detail: "Our standing evening. All three tables open simultaneously. Simply come, take your seat, and play.", img: "https://images.unsplash.com/photo-1511193311914-0346f16efe90?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&q=80&w=1200", badgeColor: "#8fa8c8" },
+              { label: "The Lecture Series", sub: "Theory & Practice", badge: "Fortnightly", detail: "Three lectures over the term — poker fundamentals, tournament play, and game theory. Open to all members.", img: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&q=80&w=1200", badgeColor: "#9a9eb0" },
             ].map((p, idx) => (
               <Reveal key={p.label} delay={idx * 80} as="div">
-                <div className="bg-[#050816] p-8 flex flex-col h-full min-h-[340px]">
-                  <span className="font-body text-[8px] uppercase tracking-[0.5em] text-[#C6A76A]/40 mb-6">
-                    :{p.badge}
-                  </span>
-                  <h3 className="font-display text-2xl text-[#F0EAD6]/70 font-bold mb-3 tracking-tight">
-                    {p.label}
-                  </h3>
-                  <p className="font-body text-[9px] uppercase tracking-[0.4em] text-[#F0EAD6]/25 mb-5">
-                    {p.sub}
-                  </p>
-                  <p className="font-body text-[#F0EAD6]/30 text-sm leading-relaxed flex-1">
-                    {p.detail}
-                  </p>
-                  <div className="mt-8 pt-6 border-t border-[#F0EAD6]/[0.05]">
-                    <a
-                      href="#newsletter"
-                      className="inline-flex items-center gap-3 text-[#C6A76A]/40 hover:text-[#C6A76A] font-body text-[9px] uppercase tracking-[0.4em] transition-colors"
+                <article className="relative group flex flex-col bg-[#050816] hover:bg-[#080b16] overflow-hidden transition-all duration-500 h-full">
+                  <div className="relative h-52 overflow-hidden">
+                    <img
+                      src={p.img}
+                      alt={p.label}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.8s] group-hover:scale-105 opacity-60 group-hover:opacity-75"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-[#050816]/60 to-transparent" />
+                    <div
+                      className="absolute top-5 left-5 flex items-center gap-2 px-3 py-1 border text-[8px] uppercase tracking-[0.4em] font-body"
+                      style={{ borderColor: `${p.badgeColor}35`, color: `${p.badgeColor}90` }}
                     >
-                      Join to Reserve
-                      <span className="w-4 h-px bg-current" />
-                    </a>
+                      :{p.badge}
+                    </div>
                   </div>
-                </div>
+                  <div className="flex flex-col flex-1 p-8">
+                    <h3 className="font-display text-2xl md:text-3xl text-[#F0EAD6]/80 leading-tight tracking-tight mb-3 font-bold">
+                      {p.label}
+                    </h3>
+                    <p className="font-body text-[9px] uppercase tracking-[0.4em] text-[#F0EAD6]/25 mb-5">
+                      {p.sub}
+                    </p>
+                    <p className="font-body text-[#F0EAD6]/30 text-sm leading-relaxed flex-1">
+                      {p.detail}
+                    </p>
+                    <div className="mt-8 pt-6 border-t border-[#F0EAD6]/[0.05]">
+                      <a
+                        href="#newsletter"
+                        className="inline-flex items-center gap-3 text-[#C6A76A]/40 hover:text-[#C6A76A] font-body text-[9px] uppercase tracking-[0.4em] transition-colors"
+                      >
+                        Join to Reserve
+                        <span className="w-4 h-px bg-current" />
+                      </a>
+                    </div>
+                  </div>
+                </article>
               </Reveal>
             ))}
           </div>
