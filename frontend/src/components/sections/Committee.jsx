@@ -9,14 +9,16 @@ const COMMITTEE = [
     bio: "Mirsaid founded The Oxford Card Room with a straightforward ambition: to create a student poker society that could hold its own against the best in the world. He leads on membership, partnerships, and event production.",
     initial: "MA",
     index: "01",
+    img: "/oxford-card-room/committee/president.jpg",
   },
   {
-    role: "Secretary",
-    roleLabel: "Secretary",
+    role: "Vice President",
+    roleLabel: "Vice President",
     name: "Atel Rassoli",
     bio: "Atel runs the lecture programme, manages member onboarding, and handles all correspondence. He's also reliably the first person you'll meet at a Beginners' Table — and the most patient about explaining pot odds.",
     initial: "AR",
     index: "02",
+    img: "/oxford-card-room/committee/vp.jpg",
   },
 ];
 
@@ -62,29 +64,20 @@ export default function Committee() {
                 data-testid={`committee-card-${m.role.toLowerCase()}`}
                 className="group relative bg-[#050816] hover:bg-[#080b16] transition-all duration-500 overflow-hidden"
               >
-                {/* Avatar area */}
-                <div className="relative h-60 bg-[#08090f] flex items-center justify-center overflow-hidden">
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(198,167,106,0.04),transparent_70%)]" />
-
-                  {/* Large initial */}
-                  <span
-                    aria-hidden
-                    className="absolute font-display font-bold text-[#C6A76A]/[0.04] leading-none select-none"
-                    style={{ fontSize: "clamp(100px, 16vw, 180px)" }}
-                  >
-                    {m.initial}
-                  </span>
-
-                  {/* Avatar circle */}
-                  <div className="relative z-10 w-28 h-28 rounded-full border border-[#C6A76A]/15 group-hover:border-[#C6A76A]/40 flex items-center justify-center transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(198,167,106,0.08)]">
-                    <span className="font-display text-3xl text-[#C6A76A]/50 group-hover:text-[#C6A76A]/80 transition-colors duration-500 tracking-tight">
-                      {m.initial}
-                    </span>
-                  </div>
+                {/* Photo area */}
+                <div className="relative h-80 bg-[#08090f] overflow-hidden">
+                  <img
+                    src={m.img}
+                    alt={m.name}
+                    className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    style={{ filter: "grayscale(1) contrast(1.08) brightness(0.85)" }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-[#050816]/30 to-transparent" />
+                  <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(198,167,106,0.06), transparent)" }} />
 
                   {/* Index label */}
-                  <div className="absolute top-6 left-6">
-                    <span className="font-body text-[8px] uppercase tracking-[0.5em] text-[#C6A76A]/30">
+                  <div className="absolute top-6 left-6 z-10">
+                    <span className="font-body text-[8px] uppercase tracking-[0.5em] text-[#C6A76A]/50">
                       :{m.index}
                     </span>
                   </div>
