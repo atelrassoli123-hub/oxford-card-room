@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Reveal from "@/components/Reveal";
 
-const OXFORD_IMG = "https://images.unsplash.com/photo-1543783207-ec64e4d95325?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&q=80&w=1200";
-const POKER_IMG  = "https://images.unsplash.com/photo-1511193311914-0346f16efe90?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&q=80&w=1200";
+const POKER_IMG = "https://images.unsplash.com/photo-1511193311914-0346f16efe90?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&q=80&w=1200";
 
 const STATS = [
   { v: "8",   l: "Week Term",       sub: "Michaelmas 2027" },
@@ -48,33 +47,23 @@ export default function Overview() {
   return (
     <section id="overview" data-testid="overview-section" className="relative bg-[#050816]">
 
-      {/* ── Split image banner ───────────────────────────── */}
+      {/* ── Full-width poker image banner ────────────────────── */}
       <div className="relative w-full h-[55vh] md:h-[72vh] overflow-hidden" data-testid="overview-banner">
-        <div className="absolute inset-0 grid grid-cols-2">
-
-          <div className="relative overflow-hidden" data-testid="overview-banner-oxford">
-            <img src={OXFORD_IMG} alt="Oxford University" className="absolute inset-0 w-full h-full object-cover scale-105 hover:scale-100 transition-transform duration-[2s]" />
-            <div className="absolute inset-0 bg-[#050816]/55" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#050816]/30 to-transparent" />
-            <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12">
-              <p className="font-body text-[8px] uppercase tracking-[0.5em] text-[#C6A76A]/50">:The University</p>
-            </div>
-          </div>
-
-          <div className="relative overflow-hidden" data-testid="overview-banner-poker">
-            <img src={POKER_IMG} alt="Poker table" className="absolute inset-0 w-full h-full object-cover scale-105 hover:scale-100 transition-transform duration-[2s]" />
-            <div className="absolute inset-0 bg-[#050816]/55" />
-            <div className="absolute inset-0 bg-gradient-to-l from-[#050816]/30 to-transparent" />
-            <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 text-right">
-              <p className="font-body text-[8px] uppercase tracking-[0.5em] text-[#C6A76A]/50">:The Card Room</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Gold seam */}
-        <div className="absolute top-0 bottom-0 left-1/2 w-px bg-gradient-to-b from-transparent via-[#C6A76A]/35 to-transparent -translate-x-1/2 z-10" />
-        {/* Bottom fade */}
+        <img
+          src={POKER_IMG}
+          alt="Player flicking cards"
+          className="absolute inset-0 w-full h-full object-cover scale-105"
+          style={{ filter: "grayscale(1) contrast(1.1)" }}
+        />
+        {/* Dark vignette */}
+        <div className="absolute inset-0 bg-[#050816]/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050816]/60 via-transparent to-[#050816]/60" />
+        {/* Bottom fade into content */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#050816] pointer-events-none" />
+        {/* Label */}
+        <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12">
+          <p className="font-body text-[8px] uppercase tracking-[0.5em] text-[#C6A76A]/50">:The Card Room</p>
+        </div>
       </div>
 
       {/* ── Body copy ────────────────────────────────────── */}

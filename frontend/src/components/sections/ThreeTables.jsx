@@ -17,6 +17,7 @@ const TABLES = [
       "Beginners' Lecture Series included",
     ],
     atmosphere: "Warm. Patient. Genuinely welcoming.",
+    img: "https://images.unsplash.com/photo-1530479220000-c3e4537f84d6?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=700&q=80&w=700",
     accent: "#C6A76A",
     bgFrom: "rgba(198,167,106,0.06)",
     bgTo:   "rgba(198,167,106,0.01)",
@@ -40,6 +41,7 @@ const TABLES = [
       "No application required",
     ],
     atmosphere: "Convivial. Competitive. Comfortable.",
+    img: "https://images.unsplash.com/photo-1511193311914-0346f16efe90?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=700&q=80&w=700",
     accent: "#8fa8c8",
     bgFrom: "rgba(143,168,200,0.05)",
     bgTo:   "rgba(143,168,200,0.01)",
@@ -63,6 +65,7 @@ const TABLES = [
       "Jump Trading underwritten",
     ],
     atmosphere: "Focused. Rigorous. Rewarding.",
+    img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=700&q=80&w=700",
     accent: "#9a3545",
     bgFrom: "rgba(154,53,69,0.06)",
     bgTo:   "rgba(154,53,69,0.01)",
@@ -207,38 +210,48 @@ export default function ThreeTables() {
                     </p>
                   </div>
 
-                  {/* Right: details list */}
+                  {/* Right: themed image with details overlay */}
                   <div
-                    className="col-span-5 flex flex-col justify-center p-12 lg:p-16 border-l"
-                    style={{ borderColor: `${t.accent}15` }}
+                    className="col-span-5 relative overflow-hidden border-l"
+                    style={{ borderColor: `${t.accent}15`, minHeight: "420px" }}
                   >
-                    <p className="font-body text-[9px] uppercase tracking-[0.5em] text-[#F0EAD6]/25 mb-8">
-                      :What to expect
-                    </p>
-                    <ul className="space-y-5">
-                      {t.details.map((d, di) => (
-                        <li key={di} className="flex items-start gap-4">
-                          <span
-                            className="mt-1.5 flex-shrink-0 w-1 h-1 rounded-full"
-                            style={{ background: t.accent }}
-                          />
-                          <span className="font-body text-[#F0EAD6]/50 text-sm leading-relaxed">
-                            {d}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="mt-12 pt-8" style={{ borderTop: `1px solid ${t.accent}18` }}>
-                      <a
-                        href="#newsletter"
-                        className="inline-flex items-center gap-3 font-body text-[9px] uppercase tracking-[0.45em] transition-colors"
-                        style={{ color: `${t.accent}80` }}
-                        onMouseEnter={e => e.currentTarget.style.color = t.accent}
-                        onMouseLeave={e => e.currentTarget.style.color = `${t.accent}80`}
-                      >
-                        Join to reserve your seat
-                        <span className="inline-block w-4 h-px bg-current" />
-                      </a>
+                    <img
+                      src={t.img}
+                      alt={t.name}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      style={{ filter: "grayscale(0.4) contrast(1.08)", transform: "scale(1.04)" }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-[#050816]/70 to-[#050816]/25" />
+                    <div className="absolute inset-0" style={{ background: `radial-gradient(ellipse 100% 55% at 50% 100%, ${t.bgFrom}, transparent)` }} />
+                    <div className="relative z-10 flex flex-col justify-end h-full p-12 lg:p-16">
+                      <p className="font-body text-[9px] uppercase tracking-[0.5em] text-[#F0EAD6]/30 mb-8">
+                        :What to expect
+                      </p>
+                      <ul className="space-y-5">
+                        {t.details.map((d, di) => (
+                          <li key={di} className="flex items-start gap-4">
+                            <span
+                              className="mt-1.5 flex-shrink-0 w-1 h-1 rounded-full"
+                              style={{ background: t.accent }}
+                            />
+                            <span className="font-body text-[#F0EAD6]/70 text-sm leading-relaxed">
+                              {d}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="mt-12 pt-8" style={{ borderTop: `1px solid ${t.accent}18` }}>
+                        <a
+                          href="#newsletter"
+                          className="inline-flex items-center gap-3 font-body text-[9px] uppercase tracking-[0.45em] transition-colors"
+                          style={{ color: `${t.accent}80` }}
+                          onMouseEnter={e => e.currentTarget.style.color = t.accent}
+                          onMouseLeave={e => e.currentTarget.style.color = `${t.accent}80`}
+                        >
+                          Join to reserve your seat
+                          <span className="inline-block w-4 h-px bg-current" />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -284,8 +297,17 @@ export default function ThreeTables() {
                 style={{ display: active === i ? "block" : "none" }}
               >
                 <div className="px-6 pb-8 border-t border-[#F0EAD6]/[0.05]">
+                  <div className="relative h-36 mt-5 mb-5 overflow-hidden">
+                    <img
+                      src={t.img}
+                      alt={t.name}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      style={{ filter: "grayscale(0.5) contrast(1.06)" }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#050816]/75" />
+                  </div>
                   <p
-                    className="font-display italic text-base mt-6 mb-4"
+                    className="font-display italic text-base mb-4"
                     style={{ color: `${t.accent}80` }}
                   >
                     "{t.tagline}"

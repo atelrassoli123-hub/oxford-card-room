@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
+import PlayingCard from "@/components/PlayingCard";
+import PokerChip   from "@/components/PokerChip";
 
 const SPECS = [
   { label: "Format", value: "No-Limit Hold'em" },
@@ -31,11 +33,30 @@ export default function Hero() {
       {/* ── Grain ────────────────────────────────────────── */}
       <div className="absolute inset-0 grain opacity-30 pointer-events-none" />
 
-      {/* ── Decorative card suits — very faint ───────────── */}
+      {/* ── Floating playing cards — right half, hidden on mobile ── */}
+      <div aria-hidden="true" className="absolute inset-0 pointer-events-none select-none overflow-hidden hidden lg:block">
+        <div className="absolute card-float-a" style={{ top: "7%",  right: "3%",  width: "clamp(155px, 13vw, 205px)", opacity: 0.13 }}>
+          <PlayingCard variant="ace-spade" />
+        </div>
+        <div className="absolute card-float-b" style={{ top: "27%", right: "19%", width: "clamp(135px, 11vw, 178px)", opacity: 0.10 }}>
+          <PlayingCard variant="king-heart" rotate={10} />
+        </div>
+        <div className="absolute card-float-c" style={{ top: "48%", right: "5%",  width: "clamp(122px, 10vw, 158px)", opacity: 0.08 }}>
+          <PlayingCard variant="queen-diamond" rotate={-16} />
+        </div>
+      </div>
+
+      {/* ── Flipping poker chips — scattered background ──────── */}
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-        <span className="absolute top-[18%] right-[8%] font-display text-[160px] text-[#C6A76A]/[0.025] leading-none chip-toss-a">♠</span>
-        <span className="absolute top-[55%] left-[4%]  font-display text-[120px] text-[#C6A76A]/[0.02]  leading-none chip-toss-b">♥</span>
-        <span className="absolute bottom-[22%] right-[15%] font-display text-[90px] text-[#C6A76A]/[0.018] leading-none chip-toss-c">♦</span>
+        <div className="absolute" style={{ top: "28%", left: "2%", perspective: "500px", width: "clamp(56px, 6vw, 84px)" }}>
+          <div className="chip-flip-a" style={{ opacity: 0.09 }}><PokerChip /></div>
+        </div>
+        <div className="absolute" style={{ bottom: "30%", left: "7%", perspective: "500px", width: "clamp(46px, 5vw, 68px)" }}>
+          <div className="chip-flip-b" style={{ opacity: 0.07 }}><PokerChip variant="red" /></div>
+        </div>
+        <div className="absolute" style={{ top: "63%", right: "29%", perspective: "500px", width: "clamp(40px, 4.5vw, 58px)" }}>
+          <div className="chip-flip-c" style={{ opacity: 0.06 }}><PokerChip /></div>
+        </div>
       </div>
 
       {/* ── Top eyebrow bar ──────────────────────────────── */}

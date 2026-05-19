@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add *)",
+      "PowerShell($env:PATH = \"C:\\\\Program Files\\\\nodejs;$env:PATH\"; Set-Location \"c:\\\\Users\\\\Rasso\\\\OneDrive\\\\Documents\\\\GitHub\\\\oxford-card-room\\\\frontend\"; npm install 2>&1 | Select-Object -Last 5)"
+    ]
+  }
+}

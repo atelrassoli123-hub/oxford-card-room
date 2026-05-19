@@ -137,7 +137,7 @@ html {
 }
 .ambient-pulse { animation: ambientPulse 8s ease-in-out infinite; }
 
-/* ─── CHIP FLOAT ─────────────────────────────────────────── */
+/* ─── CHIP FLOAT (suit glyphs) ───────────────────────────── */
 @keyframes chipFloatA {
     0%, 100% { transform: translate(0, 0) rotate(0deg); }
     50%       { transform: translate(8px, -14px) rotate(12deg); }
@@ -153,6 +153,49 @@ html {
 .chip-toss-a { animation: chipFloatA 7s ease-in-out infinite; }
 .chip-toss-b { animation: chipFloatB 9s ease-in-out infinite; }
 .chip-toss-c { animation: chipFloatC 6s ease-in-out infinite; }
+
+/* ─── CARD FLOAT ─────────────────────────────────────────── */
+@keyframes cardFloatA {
+    0%, 100% { transform: rotate(-12deg) translateY(0px); }
+    50%       { transform: rotate(-11deg) translateY(-20px); }
+}
+@keyframes cardFloatB {
+    0%, 100% { transform: rotate(10deg) translateY(0px); }
+    50%       { transform: rotate(9deg) translateY(-26px); }
+}
+@keyframes cardFloatC {
+    0%, 100% { transform: rotate(-18deg) translateY(0px); }
+    50%       { transform: rotate(-17deg) translateY(-16px); }
+}
+.card-float-a { animation: cardFloatA 7s ease-in-out infinite; }
+.card-float-b { animation: cardFloatB 9s ease-in-out infinite; animation-delay: -3s; }
+.card-float-c { animation: cardFloatC 11s ease-in-out infinite; animation-delay: -5.5s; }
+
+/* ─── CHIP FLIP (3-D bounce-flip for PokerChip SVGs) ─────── */
+@keyframes chipFlipBounceA {
+    0%, 100%  { transform: translateY(0px)    rotateX(0deg);   }
+    10%        { transform: translateY(-22px) rotateX(90deg);  }
+    20%        { transform: translateY(-30px) rotateX(180deg); }
+    30%        { transform: translateY(-16px) rotateX(270deg); }
+    38%, 92%   { transform: translateY(0px)    rotateX(360deg); }
+}
+@keyframes chipFlipBounceB {
+    0%, 100%  { transform: translateY(0px)    rotateX(0deg);   }
+    12%        { transform: translateY(-18px) rotateX(90deg);  }
+    24%        { transform: translateY(-24px) rotateX(180deg); }
+    36%        { transform: translateY(-10px) rotateX(270deg); }
+    44%, 92%   { transform: translateY(0px)    rotateX(360deg); }
+}
+@keyframes chipFlipBounceC {
+    0%, 100%  { transform: translateY(0px)    rotateX(0deg);   }
+    8%         { transform: translateY(-16px) rotateX(90deg);  }
+    18%        { transform: translateY(-20px) rotateX(180deg); }
+    28%        { transform: translateY(-8px)  rotateX(270deg); }
+    35%, 92%   { transform: translateY(0px)    rotateX(360deg); }
+}
+.chip-flip-a { animation: chipFlipBounceA 9s ease-in-out infinite; transform-style: preserve-3d; }
+.chip-flip-b { animation: chipFlipBounceB 11s ease-in-out infinite; animation-delay: -3.2s; transform-style: preserve-3d; }
+.chip-flip-c { animation: chipFlipBounceC 8s ease-in-out infinite; animation-delay: -5.5s; transform-style: preserve-3d; }
 
 /* ─── SCROLL INDICATOR ───────────────────────────────────── */
 @keyframes scrollLine {
