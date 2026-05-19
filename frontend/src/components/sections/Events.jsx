@@ -9,7 +9,7 @@ const API = `${BACKEND_URL}/api`;
 
 const META = {
   "boxing-night-2027": {
-    img: "https://images.unsplash.com/photo-cjE8onriPtE?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&q=80&w=1200",
+    img: "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&q=80&w=1200",
     icon: Trophy,
     badge: "Flagship Night",
     badgeColor: "#C6A76A",
@@ -137,7 +137,7 @@ export default function Events() {
           /* Placeholder state while loading */
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#F0EAD6]/[0.04]">
             {[
-              { label: "The Knockout Night", sub: "Boxing & Poker · Flagship", badge: "Week IV", detail: "Three sanctioned bouts, a friendly book, and a four-table tournament. The Card Room's most anticipated evening.", img: "https://images.unsplash.com/photo-cjE8onriPtE?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&q=80&w=1200", badgeColor: "#C6A76A" },
+              { label: "The Knockout Night", sub: "Boxing & Poker · Flagship", badge: "Week IV", detail: "Three sanctioned bouts, a friendly book, and a four-table tournament. The Card Room's most anticipated evening.", img: "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&q=80&w=1200", badgeColor: "#C6A76A" },
               { label: "Members' Night", sub: "All Tables · Weekly", badge: "Every Week", detail: "Our standing evening. All three tables open simultaneously. Simply come, take your seat, and play.", img: "https://images.unsplash.com/photo-1511193311914-0346f16efe90?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&q=80&w=1200", badgeColor: "#8fa8c8" },
               { label: "The Lecture Series", sub: "Theory & Practice", badge: "Fortnightly", detail: "Three lectures over the term — poker fundamentals, tournament play, and game theory. Open to all members.", img: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&q=80&w=1200", badgeColor: "#9a9eb0" },
             ].map((p, idx) => (
