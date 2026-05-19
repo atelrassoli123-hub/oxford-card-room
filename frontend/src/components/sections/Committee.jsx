@@ -10,6 +10,7 @@ const COMMITTEE = [
     initial: "MA",
     index: "01",
     img: "/oxford-card-room/committee/MIRSAID.jpg",
+    imgPosition: "object-top",
   },
   {
     role: "Vice President",
@@ -19,6 +20,7 @@ const COMMITTEE = [
     initial: "AR",
     index: "02",
     img: "/oxford-card-room/committee/Atel PFP.png",
+    imgPosition: "object-center",
   },
 ];
 
@@ -65,15 +67,15 @@ export default function Committee() {
                 className="group relative bg-[#050816] hover:bg-[#080b16] transition-all duration-500 overflow-hidden"
               >
                 {/* Photo area */}
-                <div className="relative h-80 bg-[#08090f] overflow-hidden">
+                <div className="relative h-[480px] bg-[#08090f] overflow-hidden">
                   <img
                     src={m.img}
                     alt={m.name}
-                    className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    style={{ filter: "grayscale(1) contrast(1.08) brightness(0.85)" }}
+                    className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${m.imgPosition}`}
+                    style={{ filter: "grayscale(1) contrast(1.05) brightness(0.95)" }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-[#050816]/30 to-transparent" />
-                  <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(198,167,106,0.06), transparent)" }} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-transparent to-transparent" />
+                  <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 40% at 50% 100%, rgba(198,167,106,0.07), transparent)" }} />
 
                   {/* Index label */}
                   <div className="absolute top-6 left-6 z-10">
