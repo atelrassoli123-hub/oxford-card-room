@@ -4,15 +4,19 @@ import Reveal from "@/components/Reveal";
 const COMMITTEE = [
   {
     role: "President",
+    roleLabel: "Founder & President",
     name: "Mirsaid Abdullaev",
-    bio: "Mirsaid founded The Oxford Card Room as a friendly place for Oxford students to get into poker. He runs membership, events, and partnerships.",
+    bio: "Mirsaid founded The Oxford Card Room with a straightforward ambition: to create a student poker society that could hold its own against the best in the world. He leads on membership, partnerships, and event production.",
     initial: "MA",
+    index: "01",
   },
   {
     role: "Secretary",
+    roleLabel: "Secretary",
     name: "Atel Rassoli",
-    bio: "Atel manages the lecture programme, member onboarding, and all general correspondence. He's also usually the first person you'll meet at a Beginners' Table.",
+    bio: "Atel runs the lecture programme, manages member onboarding, and handles all correspondence. He's also reliably the first person you'll meet at a Beginners' Table — and the most patient about explaining pot odds.",
     initial: "AR",
+    index: "02",
   },
 ];
 
@@ -21,55 +25,83 @@ export default function Committee() {
     <section
       id="committee"
       data-testid="committee-section"
-      className="relative py-24 lg:py-36 bg-[#080C14] overflow-hidden"
+      className="relative py-24 lg:py-40 bg-[#050816] overflow-hidden"
     >
-      <div className="relative max-w-[1400px] mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_30%_60%,rgba(198,167,106,0.025),transparent)]" />
+      <div className="absolute inset-0 grain opacity-20 pointer-events-none" />
+
+      <div className="relative max-w-[1400px] mx-auto px-6 lg:px-14">
+
+        {/* Header */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-20">
           <Reveal as="div" className="lg:col-span-5">
-            <p className="font-body text-[10px] uppercase tracking-[0.5em] text-[#C8A662] mb-6">
-              :06 — Committee
+            <p className="font-body text-[9px] uppercase tracking-[0.55em] text-[#C6A76A] mb-8">
+              :06 — The Committee
             </p>
-            <h2 className="font-display text-5xl md:text-6xl lg:text-7xl text-[#F5EFDE] leading-[0.95] tracking-tight font-bold">
+            <h2
+              className="font-display text-[#F0EAD6] leading-[0.95] tracking-tight font-bold"
+              style={{ fontSize: "clamp(40px, 6vw, 78px)" }}
+            >
               The founding<br />
-              <span className="italic font-normal text-[#C8A662]">committee.</span>
+              <span className="italic font-normal text-[#C6A76A]">committee.</span>
             </h2>
           </Reveal>
-          <Reveal as="div" delay={120} className="lg:col-span-6 lg:col-start-7 lg:pt-6">
-            <p className="font-body text-[#F5EFDE]/40 text-base md:text-lg leading-relaxed">
-              The society is run by two student officers, with a small voluntary
-              committee. Applications for additional positions open in Trinity Term.
+          <Reveal as="div" delay={130} className="lg:col-span-5 lg:col-start-8 flex items-end">
+            <p className="font-body text-[#F0EAD6]/35 text-base leading-relaxed">
+              The society is run by two student officers. Applications for
+              additional committee positions open in Trinity Term 2028.
             </p>
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#F5EFDE]/5">
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#F0EAD6]/[0.04]">
           {COMMITTEE.map((m, i) => (
-            <Reveal key={m.name} delay={i * 120}>
+            <Reveal key={m.name} delay={i * 120} as="div">
               <article
                 data-testid={`committee-card-${m.role.toLowerCase()}`}
-                className="group relative bg-[#080C14] hover:bg-[#0A0E17] transition-all duration-500 overflow-hidden"
+                className="group relative bg-[#050816] hover:bg-[#080b16] transition-all duration-500 overflow-hidden"
               >
                 {/* Avatar area */}
-                <div className="relative h-56 bg-[#0A0E17] flex items-center justify-center overflow-hidden">
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(200,166,98,0.05),transparent_70%)]" />
-                  <div className="w-32 h-32 rounded-full border border-[#C8A662]/20 group-hover:border-[#C8A662]/50 flex items-center justify-center transition-colors duration-500">
-                    <span className="font-display text-4xl text-[#C8A662]/60 group-hover:text-[#C8A662] transition-colors duration-500 tracking-tight">
+                <div className="relative h-60 bg-[#08090f] flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(198,167,106,0.04),transparent_70%)]" />
+
+                  {/* Large initial */}
+                  <span
+                    aria-hidden
+                    className="absolute font-display font-bold text-[#C6A76A]/[0.04] leading-none select-none"
+                    style={{ fontSize: "clamp(100px, 16vw, 180px)" }}
+                  >
+                    {m.initial}
+                  </span>
+
+                  {/* Avatar circle */}
+                  <div className="relative z-10 w-28 h-28 rounded-full border border-[#C6A76A]/15 group-hover:border-[#C6A76A]/40 flex items-center justify-center transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(198,167,106,0.08)]">
+                    <span className="font-display text-3xl text-[#C6A76A]/50 group-hover:text-[#C6A76A]/80 transition-colors duration-500 tracking-tight">
                       {m.initial}
                     </span>
                   </div>
-                  <div className="absolute top-6 left-6 font-body text-[9px] uppercase tracking-[0.45em] text-[#C8A662]/40">
-                    :{String(i + 1).padStart(2, "0")} {m.role}
+
+                  {/* Index label */}
+                  <div className="absolute top-6 left-6">
+                    <span className="font-body text-[8px] uppercase tracking-[0.5em] text-[#C6A76A]/30">
+                      :{m.index}
+                    </span>
                   </div>
                 </div>
 
-                <div className="p-8 lg:p-10">
-                  <div className="font-body text-[9px] uppercase tracking-[0.45em] text-[#C8A662]/50 mb-3">
-                    :{m.role}
-                  </div>
-                  <h3 className="font-display text-3xl md:text-4xl text-[#F5EFDE] leading-tight tracking-tight mb-4 font-bold">
+                {/* Content */}
+                <div className="p-8 lg:p-12">
+                  <p className="font-body text-[8px] uppercase tracking-[0.55em] text-[#C6A76A]/50 mb-3">
+                    :{m.roleLabel}
+                  </p>
+                  <h3
+                    className="font-display text-[#F0EAD6] leading-tight tracking-tight mb-5 font-bold"
+                    style={{ fontSize: "clamp(28px, 3vw, 40px)" }}
+                  >
                     {m.name}
                   </h3>
-                  <p className="font-body text-[#F5EFDE]/40 text-[15px] leading-relaxed">
+                  <p className="font-body text-[#F0EAD6]/38 text-[15px] leading-[1.8]">
                     {m.bio}
                   </p>
                 </div>
@@ -77,6 +109,28 @@ export default function Committee() {
             </Reveal>
           ))}
         </div>
+
+        {/* Applications note */}
+        <Reveal delay={200}>
+          <div className="mt-14 p-8 border border-[#F0EAD6]/[0.05] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div>
+              <p className="font-body text-[9px] uppercase tracking-[0.5em] text-[#C6A76A]/40 mb-2">
+                :Open Positions
+              </p>
+              <p className="font-body text-[#F0EAD6]/40 text-sm leading-relaxed">
+                Treasury, Events, and Social Secretaries. Applications open Trinity Term 2028.
+              </p>
+            </div>
+            <a
+              href="#newsletter"
+              className="shrink-0 inline-flex items-center gap-3 px-6 py-3 border border-[#C6A76A]/18 hover:border-[#C6A76A]/45 text-[#C6A76A]/45 hover:text-[#C6A76A] font-body text-[9px] uppercase tracking-[0.4em] transition-all duration-300"
+            >
+              Express Interest
+              <span className="w-3 h-px bg-current" />
+            </a>
+          </div>
+        </Reveal>
+
       </div>
     </section>
   );

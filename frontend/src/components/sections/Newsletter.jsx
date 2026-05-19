@@ -8,7 +8,7 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 export default function Newsletter() {
-  const [email, setEmail] = useState("");
+  const [email, setEmail]     = useState("");
   const [loading, setLoading] = useState(false);
 
   const submit = async (e) => {
@@ -32,51 +32,81 @@ export default function Newsletter() {
     <section
       id="newsletter"
       data-testid="newsletter-section"
-      className="relative py-24 lg:py-40 bg-[#080C14] overflow-hidden"
+      className="relative py-28 lg:py-48 bg-[#050816] overflow-hidden"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(200,166,98,0.04),transparent_70%)]" />
+      {/* Atmospheric background */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,rgba(198,167,106,0.045),transparent_70%)]" />
+      <div className="absolute inset-0 grain opacity-25 pointer-events-none" />
+
+      {/* Decorative suit */}
+      <div
+        aria-hidden
+        className="absolute right-0 top-1/2 -translate-y-1/2 font-display text-[#C6A76A]/[0.018] leading-none select-none pointer-events-none"
+        style={{ fontSize: "clamp(280px, 35vw, 480px)" }}
+      >
+        ♠
+      </div>
 
       <Reveal className="relative max-w-3xl mx-auto px-6 lg:px-12 text-center">
-        <p className="font-body text-[10px] uppercase tracking-[0.5em] text-[#C8A662] mb-8">
-          :07 — Get In Touch
-        </p>
-        <h2 className="font-display text-5xl md:text-6xl lg:text-8xl text-[#F5EFDE] leading-[0.95] tracking-tight font-bold mb-6">
-          Join the<br />
-          <span className="italic font-normal text-[#C8A662]">mailing list.</span>
-        </h2>
-        <p className="font-body text-[#F5EFDE]/40 text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-14">
-          Leave your email and we'll write to you ahead of Michaelmas with
-          membership details, event reservations, and a friendly heads-up on
-          our flagship nights.
+
+        <p className="font-body text-[9px] uppercase tracking-[0.6em] text-[#C6A76A]/70 mb-10">
+          :07 — Membership
         </p>
 
+        <h2
+          className="font-display text-[#F0EAD6] leading-[0.92] tracking-tight font-bold mb-8"
+          style={{ fontSize: "clamp(44px, 7vw, 96px)" }}
+        >
+          Reserved<br />
+          <span className="italic font-normal text-[#C6A76A]">for those who ask.</span>
+        </h2>
+
+        <p className="font-body text-[#F0EAD6]/38 text-base md:text-lg leading-[1.85] max-w-xl mx-auto mb-16">
+          Leave your email and we'll write to you ahead of Michaelmas Term with
+          membership details, event reservations, and a considered note on what
+          the coming season holds. We write rarely. We write well.
+        </p>
+
+        {/* Email form */}
         <form
           onSubmit={submit}
           data-testid="newsletter-form"
-          className="max-w-xl mx-auto flex flex-col sm:flex-row gap-0 border border-[#F5EFDE]/10 hover:border-[#C8A662]/30 focus-within:border-[#C8A662]/50 transition-colors"
+          className="max-w-lg mx-auto"
         >
-          <input
-            type="email"
-            required
-            placeholder="your.name@ox.ac.uk"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            data-testid="newsletter-input-email"
-            className="flex-1 bg-transparent outline-none px-6 py-5 text-[#F5EFDE] font-body text-base placeholder:text-[#F5EFDE]/20"
-          />
-          <button
-            type="submit"
-            disabled={loading}
-            data-testid="newsletter-submit-button"
-            className="inline-flex items-center justify-center gap-3 px-8 py-5 bg-[#C8A662] hover:bg-[#b89554] disabled:opacity-60 text-[#080C14] font-body text-[10px] uppercase tracking-[0.35em] transition-all font-bold shrink-0"
-          >
-            {loading ? "Sending…" : "Subscribe"}
-            <ArrowRight size={13} strokeWidth={1.5} />
-          </button>
+          <div className="flex flex-col sm:flex-row border border-[#F0EAD6]/[0.09] hover:border-[#C6A76A]/25 focus-within:border-[#C6A76A]/45 transition-colors duration-300">
+            <input
+              type="email"
+              required
+              placeholder="your.name@ox.ac.uk"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              data-testid="newsletter-input-email"
+              className="flex-1 bg-transparent outline-none px-6 py-5 text-[#F0EAD6] font-body text-base placeholder:text-[#F0EAD6]/18 min-w-0"
+            />
+            <button
+              type="submit"
+              disabled={loading}
+              data-testid="newsletter-submit-button"
+              className="inline-flex items-center justify-center gap-3 px-7 py-5 bg-[#C6A76A] hover:bg-[#d4b87a] disabled:opacity-50 text-[#050816] font-body text-[9px] uppercase tracking-[0.45em] transition-all duration-300 font-semibold shrink-0"
+            >
+              {loading ? "Sending…" : "Join the List"}
+              <ArrowRight size={12} strokeWidth={2} />
+            </button>
+          </div>
+          <p className="mt-5 font-body text-[9px] uppercase tracking-[0.45em] text-[#F0EAD6]/18">
+            Open to all Oxford students · No spam · Unsubscribe any time
+          </p>
         </form>
-        <p className="mt-5 font-body text-[10px] uppercase tracking-[0.35em] text-[#F5EFDE]/20">
-          We write rarely. Never spam.
-        </p>
+
+        {/* Divider */}
+        <div className="mt-20 flex items-center gap-8">
+          <div className="flex-1 h-px bg-[#F0EAD6]/[0.05]" />
+          <p className="font-display italic text-[#C6A76A]/40 text-lg">
+            "The finest table is the one you're invited to."
+          </p>
+          <div className="flex-1 h-px bg-[#F0EAD6]/[0.05]" />
+        </div>
+
       </Reveal>
     </section>
   );

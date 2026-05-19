@@ -12,9 +12,9 @@ export default function Wordmark({ size = "md", showFull = true, tone = "dark" }
     lg: { spade: 28, primary: "text-3xl", caption: "text-xs" },
   };
   const s = sizes[size] || sizes.md;
-  const primary = tone === "light" ? "text-[#0F1B33]" : "text-[#F5EFDE]";
-  const caption = tone === "light" ? "text-[#C8A662]" : "text-[#C8A662]";
-  const spadeFill = tone === "light" ? "#0F1B33" : "#C8A662";
+  const primary = tone === "light" ? "text-[#050816]" : "text-[#F0EAD6]";
+  const caption = tone === "light" ? "text-[#C6A76A]" : "text-[#C6A76A]";
+  const spadeFill = tone === "light" ? "#050816" : "#C6A76A";
 
   return (
     <div className="flex items-center gap-2.5 select-none" data-testid="wordmark">

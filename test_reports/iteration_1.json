@@ -1,0 +1,39 @@
+{
+  "summary": "Full backend + frontend smoke and integration testing for The Oxford Card Room landing. All 9 backend pytest cases pass against the public REACT_APP_BACKEND_URL. Frontend renders hero, MICHAELMAS TERM badge, full 8-week timeline (timeline-week-1..8), three event cards from /api/events, Partners (Jump Trading) and Committee (Mirsaid Abdullaev, Atel Rassoli). RSVP dialog opens, submits successfully (success toast shown). Newsletter form submits successfully (success toast shown). Nav links scroll to their sections.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/backend_test.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "OPTIONAL/NAMING: Review request expected nav data-testids of pattern `nav-overview`, `nav-format`, etc. Implementation uses `nav-link-overview`, `nav-link-format`, etc. Functionally fine (all links clickable and scroll correctly), but if reviewer expects the exact `nav-{section}` pattern, add aliases."
+  ],
+  "critical_code_review_comments": [
+    "server.py: `@app.on_event('shutdown')` is deprecated in FastAPI; prefer lifespan handlers (non-blocking).",
+    "server.py: POST /api/rsvp does not validate that event_id is one of the known event ids (boxing-night-2027, regular-poker-night, poker-lecture-series). Any arbitrary event_id is accepted and stored.",
+    "server.py: POST /api/rsvp and GET /api/rsvp are unauthenticated and unbounded — anyone can submit/read RSVPs including emails. Consider auth/rate-limiting before production.",
+    "server.py: created_at is stored as ISO string then parsed back on reads. Storing as native datetime via Motor would be cleaner and indexable.",
+    "server.py: CORS allow_origins defaults to '*' with allow_credentials=True — invalid combination per CORS spec; restrict origins for prod."
+  ],
+  "updated_files": [
+    "/app/backend/tests/backend_test.py"
+  ],
+  "success_rate": {
+    "backend": "100% (9/9)",
+    "frontend": "100% of requested flows"
+  },
+  "test_credentials": "N/A (no auth)",
+  "seed_data_creation": "Tests insert TEST_ prefixed RSVP and example.com newsletter rows; not cleaned up (no delete endpoint). Low-volume, safe for review env.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Use @example.com (not .test/.example) for EmailStr fixtures — pydantic email-validator rejects reserved TLDs. Nav data-testids are `nav-link-{label}` not `nav-{label}`. Event card testids: event-card-{id}; reserve button: event-rsvp-button-{id}. RSVP dialog: rsvp-dialog with inputs rsvp-input-{name,email,college,notes} and rsvp-submit-button. Newsletter: newsletter-input-email + newsletter-submit-button. Success toasts use sonner.",
+  "rca of the issue": "Initial 3 backend failures were due to test fixtures using @oxford.test domain which pydantic's email-validator rejects as a reserved TLD. Fixed by switching test emails to @example.com — all 9 tests then passed. No production code defects found."
+}

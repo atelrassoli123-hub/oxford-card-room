@@ -3,21 +3,27 @@ import Wordmark from "@/components/Wordmark";
 import { Menu, X } from "lucide-react";
 
 const LINKS = [
-  { href: "#overview", label: "Overview" },
-  { href: "#format", label: "Format" },
-  { href: "#timeline", label: "Timeline" },
-  { href: "#events", label: "Events" },
-  { href: "#partners", label: "Partners" },
+  { href: "#overview",  label: "Society"   },
+  { href: "#tables",    label: "Tables"    },
+  { href: "#timeline",  label: "Season"    },
+  { href: "#events",    label: "Events"    },
+  { href: "#partners",  label: "Partners"  },
   { href: "#committee", label: "Committee" },
 ];
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("");
+  const [open, setOpen]         = useState(false);
+  const [active, setActive]     = useState("");
+  const [visible, setVisible]   = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const t = setTimeout(() => setVisible(true), 300);
+    return () => clearTimeout(t);
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -31,7 +37,7 @@ export default function Nav() {
           if (entry.isIntersecting) setActive(`#${entry.target.id}`);
         });
       },
-      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+      { rootMargin: "-38% 0px -57% 0px", threshold: 0 }
     );
     ids.forEach((id) => {
       const el = document.getElementById(id);
@@ -43,80 +49,95 @@ export default function Nav() {
   return (
     <header
       data-testid="site-nav"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
+      } ${
         scrolled
-          ? "bg-[#080C14]/95 backdrop-blur-xl border-b border-[#C8A662]/10"
+          ? "bg-[#050816]/92 backdrop-blur-2xl border-b border-[#F0EAD6]/[0.05]"
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-14 h-[72px] flex items-center justify-between">
+
+        {/* Wordmark */}
         <a href="#top" data-testid="nav-logo-link" className="z-10">
           <Wordmark size="md" />
         </a>
 
-        <nav className="hidden lg:flex items-center gap-8">
+        {/* Desktop links */}
+        <nav className="hidden lg:flex items-center gap-9">
           {LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
               data-testid={`nav-link-${l.label.toLowerCase()}`}
-              className={`relative font-body text-[11px] uppercase tracking-[0.3em] transition-colors duration-300 pb-0.5
-                ${active === l.href ? "text-[#C8A662]" : "text-[#F5EFDE]/60 hover:text-[#C8A662]"}`}
+              className={`relative font-body text-[10px] uppercase tracking-[0.38em] transition-all duration-300 pb-0.5 ${
+                active === l.href
+                  ? "text-[#C6A76A]"
+                  : "text-[#F0EAD6]/45 hover:text-[#F0EAD6]/80"
+              }`}
             >
-              <span className="text-[#C8A662]/50 mr-0.5">:</span>{l.label}
               {active === l.href && (
-                <span className="absolute bottom-0 left-0 right-0 h-px bg-[#C8A662]/60 rounded-full" />
+                <span className="absolute -bottom-0.5 left-0 right-0 h-px bg-[#C6A76A]/50" />
               )}
+              {l.label}
             </a>
           ))}
         </nav>
 
+        {/* CTA */}
         <a
           href="#newsletter"
           data-testid="nav-rsvp-button"
-          className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 border border-[#C8A662]/40 hover:border-[#C8A662] hover:bg-[#C8A662]/5 text-[#C8A662] font-body text-[11px] uppercase tracking-[0.28em] transition-all duration-300"
+          className="hidden lg:inline-flex items-center gap-3 px-5 py-2.5 border border-[#C6A76A]/22 hover:border-[#C6A76A]/55 hover:bg-[#C6A76A]/5 text-[#C6A76A]/65 hover:text-[#C6A76A] font-body text-[9px] uppercase tracking-[0.38em] transition-all duration-300"
         >
-          Reserve a Seat
+          Join
+          <span className="w-3 h-px bg-current" />
         </a>
 
+        {/* Mobile toggle */}
         <button
           data-testid="nav-mobile-toggle"
           onClick={() => setOpen((v) => !v)}
-          className="lg:hidden p-2 text-[#F5EFDE]"
+          className="lg:hidden p-2 text-[#F0EAD6]/60 hover:text-[#F0EAD6] transition-colors"
           aria-label="Toggle menu"
         >
-          {open ? <X size={22} strokeWidth={1.5} /> : <Menu size={22} strokeWidth={1.5} />}
+          {open ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
         </button>
       </div>
 
-      {open && (
-        <div
-          data-testid="nav-mobile-menu"
-          className="lg:hidden bg-[#080C14]/98 backdrop-blur-xl border-t border-[#C8A662]/10"
-        >
-          <div className="px-6 py-8 flex flex-col gap-6">
-            {LINKS.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                data-testid={`nav-mobile-link-${l.label.toLowerCase()}`}
-                className="font-body text-sm uppercase tracking-[0.3em] text-[#F5EFDE]/60 hover:text-[#C8A662]"
-              >
-                <span className="text-[#C8A662]/50 mr-1">:</span>{l.label}
-              </a>
-            ))}
+      {/* Mobile menu */}
+      <div
+        data-testid="nav-mobile-menu"
+        className={`lg:hidden overflow-hidden transition-all duration-500 bg-[#050816]/97 backdrop-blur-2xl ${
+          open ? "max-h-[400px] border-b border-[#F0EAD6]/[0.05]" : "max-h-0"
+        }`}
+      >
+        <div className="px-6 py-8 flex flex-col gap-5">
+          {LINKS.map((l) => (
             <a
-              href="#newsletter"
+              key={l.href}
+              href={l.href}
               onClick={() => setOpen(false)}
-              data-testid="nav-mobile-rsvp"
-              className="mt-2 inline-flex w-fit items-center gap-2 px-5 py-2.5 border border-[#C8A662]/40 text-[#C8A662] font-body text-[11px] uppercase tracking-[0.28em]"
+              data-testid={`nav-mobile-link-${l.label.toLowerCase()}`}
+              className={`font-body text-sm uppercase tracking-[0.35em] transition-colors ${
+                active === l.href ? "text-[#C6A76A]" : "text-[#F0EAD6]/45 hover:text-[#F0EAD6]/80"
+              }`}
             >
-              Reserve a Seat
+              {l.label}
             </a>
-          </div>
+          ))}
+          <a
+            href="#newsletter"
+            onClick={() => setOpen(false)}
+            data-testid="nav-mobile-rsvp"
+            className="mt-3 inline-flex w-fit items-center gap-3 px-5 py-3 border border-[#C6A76A]/25 text-[#C6A76A]/70 font-body text-[9px] uppercase tracking-[0.4em] hover:border-[#C6A76A]/50 hover:text-[#C6A76A] transition-all"
+          >
+            Join the Society
+            <span className="w-3 h-px bg-current" />
+          </a>
         </div>
-      )}
+      </div>
     </header>
   );
 }
