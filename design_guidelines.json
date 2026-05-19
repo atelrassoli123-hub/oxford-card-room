@@ -1,0 +1,142 @@
+{
+  "project_name": "The Oxford Card Room",
+  "theme": "dark",
+  "archetype": "5 (Jewel & Luxury)",
+  "typography": {
+    "headings": {
+      "font": "Cormorant Garamond",
+      "weights": ["400", "600", "700"],
+      "usage": "H1, H2, H3, large display numbers, logo text",
+      "letter_spacing": "tracking-tight"
+    },
+    "body": {
+      "font": "Outfit",
+      "weights": ["300", "400", "500"],
+      "usage": "Paragraphs, labels, small caps, navigation"
+    },
+    "scale": {
+      "h1": "text-5xl md:text-6xl lg:text-7xl",
+      "h2": "text-3xl md:text-4xl lg:text-5xl",
+      "h3": "text-2xl md:text-3xl",
+      "body": "text-base md:text-lg"
+    }
+  },
+  "colors": {
+    "background": {
+      "main": "#050505",
+      "surface": "#0F0F12",
+      "surface_elevated": "#1A1A1A"
+    },
+    "accent": {
+      "primary": "#7A1C28",
+      "secondary": "#D4AF37",
+      "hover": "#5B1822"
+    },
+    "text": {
+      "primary": "#F8F8F8",
+      "secondary": "#A1A1AA",
+      "accent": "#D4AF37"
+    },
+    "border": "#27272A"
+  },
+  "layout_and_spacing": {
+    "philosophy": "Generous spacing, architectural precision. High contrast and luxury feel.",
+    "grid_modes": "Bento Grid (Asymmetric) for Format/Events. Strict vertical timeline view for Michaelmas term.",
+    "spacing_scale": "p-6, p-8, p-12, p-16, p-24, p-32",
+    "rules": [
+      "No generic equal columns for content sections. Use grid-cols-1 md:grid-cols-12 and span elements asymmetrically.",
+      "Never center align everything; build tension through asymmetry.",
+      "Containers with borders must have internal padding.",
+      "Hero image must have bg-black/60 or bg-gradient overlay to ensure text contrast."
+    ]
+  },
+  "surfaces": {
+    "cards": "Glassmorphism for event cards (bg-white/5 backdrop-blur-xl border border-white/10) or solid surface (bg-neutral-900) with 1px border. No soft shadows, use 1px inner highlights.",
+    "buttons": "Flat solid primary (#7A1C28) with #F8F8F8 text. Hover: lighter hue (#9A2332). Secondary buttons: Gold outline (#D4AF37) with transparent bg."
+  },
+  "animations": {
+    "hover": "Subtle scale up (scale-105) for event images, slight background lighten for cards.",
+    "scroll": "Fade in and slide up for sections on scroll.",
+    "interaction": "Micro-interactions on buttons (scale-95 on active)."
+  },
+  "sections": [
+    {
+      "name": "Navigation",
+      "description": "Sticky Glassmorphism Header. Logo (Refined typographic wordmark), Links (Overview, Format, Timeline, Events, Partners). Right CTA (RSVP)."
+    },
+    {
+      "name": "Hero",
+      "description": "Full height. Large title 'The Oxford Card Room'. Overline 'MICHAELMAS 2027'. Tagline 'Oxford\\'s premier poker and betting society'. RSVP CTA. Background uses hero_background with heavy dark overlay."
+    },
+    {
+      "name": "Overview & About",
+      "description": "Asymmetric text block vs image block. Uses oxford_architecture image. 'An exclusive student-led forum bringing high-stakes luxury to the Oxford community.'"
+    },
+    {
+      "name": "Format & Rules",
+      "description": "Grid of rules. Texas Hold'em tournament structure, blinds, buy-ins, etiquette."
+    },
+    {
+      "name": "Timeline (Michaelmas 2027)",
+      "description": "8-week Oxford term visual timeline. A vertical line with nodes for each week (Week 1 to Week 8), highlighting big events."
+    },
+    {
+      "name": "Upcoming Events",
+      "description": "Grid of 3 cards using provided images: Boxing Night with Betting, Regular Poker Nights, Educational Lectures."
+    },
+    {
+      "name": "Partners",
+      "description": "Prominent showcase for Confirmed Sponsor: Jump Trading. Minimalist, premium logo display."
+    },
+    {
+      "name": "Committee",
+      "description": "2 minimalist Cards: President (Mirsaid Abdullaev) and Secretary (Atel Rassoli)."
+    },
+    {
+      "name": "Newsletter & Footer",
+      "description": "Newsletter signup form (input + button). Clean footer with society links and copyright."
+    }
+  ],
+  "components_strategy": {
+    "ui_library": "shadcn/ui customized (Input, Button, Form). Use raw HTML/Tailwind for bento grids.",
+    "forms": "Use customized shadcn components. Ensure dark mode styles.",
+    "icons": "lucide-react (use thin variants for luxury feel, strokeWidth={1.5})."
+  },
+  "image_urls": {
+    "hero_background": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/9454c07a-f535-4f32-a0aa-3cceaeae12d8/images/0ca331990f86b01cb2c7f1ad1cf86a002033f70c6cb8f77689b8713cc4d9fb6b.png",
+      "description": "Cinematic close-up of premium casino poker chips and cards"
+    },
+    "poker_lecture": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/9454c07a-f535-4f32-a0aa-3cceaeae12d8/images/b127d9f54e9f0145300db8662c6b3dddafcc0a0ab752a65ead6372468ba601e6.png",
+      "description": "Elegant Oxford library setting"
+    },
+    "poker_regular": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/9454c07a-f535-4f32-a0aa-3cceaeae12d8/images/201ebb1a9873ccb82a867556680071b29d94214c45bbbbbc02751e4ceba83bcf.png",
+      "description": "Premium playing cards fanned out on a table"
+    },
+    "boxing_event": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/9454c07a-f535-4f32-a0aa-3cceaeae12d8/images/76b791f8523c92bf33df9b02aca55ea8d53e54b217c8265e55250bfefbde2a79.png",
+      "description": "Moody cinematic shot of a vintage boxing ring corner"
+    },
+    "sponsor_jump_trading": {
+      "url": "https://images.unsplash.com/photo-1635220035700-f2d881d763c2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjd8MHwxfHNlYXJjaHwxfHxKdW1wJTIwVHJhZGluZyUyMGxvZ298ZW58MHx8fHwxNzc5MTk3Mjc3fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Jump Trading logo abstraction"
+    },
+    "oxford_architecture": {
+      "url": "https://images.unsplash.com/photo-1579628151787-e17a97e79feb?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNDR8MHwxfHNlYXJjaHwxfHxveGZvcmQlMjB1bml2ZXJzaXR5JTIwYXJjaGl0ZWN0dXJlJTIwYXJjaGl0ZWN0dXJlJTIwZGFyayUyMG1vb2R5fGVufDB8fHx8MTc3OTE5NzI3NXww&ixlib=rb-4.1.0&q=85",
+      "description": "Moody Oxford University architecture"
+    }
+  },
+  "instructions_to_main_agent": [
+    "Strictly adhere to the dark theme and jewel/luxury archetype. Do not introduce generic blue/purple gradients.",
+    "Ensure all fonts are loaded. Use 'Cormorant Garamond' for display/headings and 'Outfit' for sans-serif body.",
+    "Use raw HTML and Tailwind CSS for the bento grids (Events, Format), not heavily structured Shadcn containers.",
+    "Implement the 8-week timeline vertically, mapping weeks 1 to 8 of Michaelmas 2027.",
+    "Sponsor section must prominently feature Jump Trading.",
+    "Use data-testid attributes for buttons, inputs, links, and forms.",
+    "Do NOT use placeholder text for images; use the provided image URLs.",
+    "Provide interactive RSVP forms and Newsletter inputs using Shadcn UI.",
+    "Implement smooth scrolling and glassmorphism elements over dark backgrounds where appropriate (like nav bar)."
+  ]
+}
