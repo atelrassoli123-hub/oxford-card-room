@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
 import { ArrowRight } from "lucide-react";
-import { Flourish } from "@/components/Ornaments";
 import Reveal from "@/components/Reveal";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -33,30 +32,28 @@ export default function Newsletter() {
     <section
       id="newsletter"
       data-testid="newsletter-section"
-      className="relative py-24 lg:py-36 bg-[#0F1B33] overflow-hidden"
+      className="relative py-24 lg:py-40 bg-[#080C14] overflow-hidden"
     >
-      <div className="absolute top-1/2 -left-32 w-96 h-96 rounded-full bg-[#C8A662]/15 blur-[120px] -translate-y-1/2" />
-      <div className="absolute top-1/2 -right-32 w-96 h-96 rounded-full bg-[#9A1F2C]/15 blur-[120px] -translate-y-1/2" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(200,166,98,0.04),transparent_70%)]" />
 
       <Reveal className="relative max-w-3xl mx-auto px-6 lg:px-12 text-center">
-        <p className="font-body text-[10px] uppercase tracking-[0.45em] text-[#C8A662] mb-6">
-          07 — Get In Touch
+        <p className="font-body text-[10px] uppercase tracking-[0.5em] text-[#C8A662] mb-8">
+          :07 — Get In Touch
         </p>
-        <Flourish className="w-48 h-5 mx-auto mb-8" color="#C8A662" />
-        <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[#F5EFDE] leading-[1] tracking-tight font-bold">
-          Join the
-          <br />
-          <span className="italic text-[#C8A662] font-normal">mailing list.</span>        </h2>
-        <p className="mt-8 font-body text-[#F5EFDE]/80 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+        <h2 className="font-display text-5xl md:text-6xl lg:text-8xl text-[#F5EFDE] leading-[0.95] tracking-tight font-bold mb-6">
+          Join the<br />
+          <span className="italic font-normal text-[#C8A662]">mailing list.</span>
+        </h2>
+        <p className="font-body text-[#F5EFDE]/40 text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-14">
           Leave your email and we'll write to you ahead of Michaelmas with
           membership details, event reservations, and a friendly heads-up on
-          our flagship nights. Open to all Oxford students.
+          our flagship nights.
         </p>
 
         <form
           onSubmit={submit}
           data-testid="newsletter-form"
-          className="mt-12 max-w-xl mx-auto flex flex-col sm:flex-row gap-3 border-b border-[#C8A662]/40 focus-within:border-[#C8A662] transition-colors pb-2"
+          className="max-w-xl mx-auto flex flex-col sm:flex-row gap-0 border border-[#F5EFDE]/10 hover:border-[#C8A662]/30 focus-within:border-[#C8A662]/50 transition-colors"
         >
           <input
             type="email"
@@ -65,19 +62,19 @@ export default function Newsletter() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             data-testid="newsletter-input-email"
-            className="flex-1 bg-transparent border-0 outline-none px-2 py-4 text-[#F5EFDE] font-body text-lg placeholder:text-[#F5EFDE]/40"
+            className="flex-1 bg-transparent outline-none px-6 py-5 text-[#F5EFDE] font-body text-base placeholder:text-[#F5EFDE]/20"
           />
           <button
             type="submit"
             disabled={loading}
             data-testid="newsletter-submit-button"
-            className="inline-flex items-center justify-center gap-3 px-8 py-3 bg-[#C8A662] hover:bg-[#b89554] disabled:opacity-60 text-[#0F1B33] font-body text-[11px] uppercase tracking-[0.3em] transition-all active:scale-[0.98] rounded-sm font-bold"
+            className="inline-flex items-center justify-center gap-3 px-8 py-5 bg-[#C8A662] hover:bg-[#b89554] disabled:opacity-60 text-[#080C14] font-body text-[10px] uppercase tracking-[0.35em] transition-all font-bold shrink-0"
           >
             {loading ? "Sending…" : "Subscribe"}
-            <ArrowRight size={14} strokeWidth={1.5} />
+            <ArrowRight size={13} strokeWidth={1.5} />
           </button>
         </form>
-        <p className="mt-4 font-body text-[11px] uppercase tracking-[0.3em] text-[#F5EFDE]/50">
+        <p className="mt-5 font-body text-[10px] uppercase tracking-[0.35em] text-[#F5EFDE]/20">
           We write rarely. Never spam.
         </p>
       </Reveal>

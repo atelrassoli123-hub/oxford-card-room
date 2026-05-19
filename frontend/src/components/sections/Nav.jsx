@@ -17,7 +17,7 @@ export default function Nav() {
   const [active, setActive] = useState("");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
+    const onScroll = () => setScrolled(window.scrollY > 60);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -45,13 +45,13 @@ export default function Nav() {
       data-testid="site-nav"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#F5EFDE]/90 backdrop-blur-xl border-b border-[#1B2845]/15"
-          : "bg-[#F5EFDE]/60 backdrop-blur-md border-b border-transparent"
+          ? "bg-[#080C14]/95 backdrop-blur-xl border-b border-[#C8A662]/10"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         <a href="#top" data-testid="nav-logo-link" className="z-10">
-          <Wordmark size="md" showFull={false} tone="light" />
+          <Wordmark size="md" />
         </a>
 
         <nav className="hidden lg:flex items-center gap-8">
@@ -60,12 +60,12 @@ export default function Nav() {
               key={l.href}
               href={l.href}
               data-testid={`nav-link-${l.label.toLowerCase()}`}
-              className={`relative font-body text-[13px] uppercase tracking-[0.22em] transition-colors duration-300 pb-0.5
-                ${active === l.href ? "text-[#C8A662]" : "text-[#1B2845] hover:text-[#C8A662]"}`}
+              className={`relative font-body text-[11px] uppercase tracking-[0.3em] transition-colors duration-300 pb-0.5
+                ${active === l.href ? "text-[#C8A662]" : "text-[#F5EFDE]/60 hover:text-[#C8A662]"}`}
             >
-              {l.label}
+              <span className="text-[#C8A662]/50 mr-0.5">:</span>{l.label}
               {active === l.href && (
-                <span className="absolute bottom-0 left-0 right-0 h-px bg-[#C8A662] rounded-full" />
+                <span className="absolute bottom-0 left-0 right-0 h-px bg-[#C8A662]/60 rounded-full" />
               )}
             </a>
           ))}
@@ -74,7 +74,7 @@ export default function Nav() {
         <a
           href="#newsletter"
           data-testid="nav-rsvp-button"
-          className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 bg-[#0F1B33] hover:bg-[#16264a] text-[#C8A662] font-body text-[12px] uppercase tracking-[0.28em] transition-all duration-300 font-bold"
+          className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 border border-[#C8A662]/40 hover:border-[#C8A662] hover:bg-[#C8A662]/5 text-[#C8A662] font-body text-[11px] uppercase tracking-[0.28em] transition-all duration-300"
         >
           Reserve a Seat
         </a>
@@ -82,7 +82,7 @@ export default function Nav() {
         <button
           data-testid="nav-mobile-toggle"
           onClick={() => setOpen((v) => !v)}
-          className="lg:hidden p-2 text-[#0F1B33]"
+          className="lg:hidden p-2 text-[#F5EFDE]"
           aria-label="Toggle menu"
         >
           {open ? <X size={22} strokeWidth={1.5} /> : <Menu size={22} strokeWidth={1.5} />}
@@ -92,25 +92,25 @@ export default function Nav() {
       {open && (
         <div
           data-testid="nav-mobile-menu"
-          className="lg:hidden bg-[#F5EFDE]/95 backdrop-blur-xl border-t border-[#1B2845]/15"
+          className="lg:hidden bg-[#080C14]/98 backdrop-blur-xl border-t border-[#C8A662]/10"
         >
-          <div className="px-6 py-6 flex flex-col gap-5">
+          <div className="px-6 py-8 flex flex-col gap-6">
             {LINKS.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
                 data-testid={`nav-mobile-link-${l.label.toLowerCase()}`}
-                className="font-body text-sm uppercase tracking-[0.22em] text-[#1B2845] hover:text-[#C8A662]"
+                className="font-body text-sm uppercase tracking-[0.3em] text-[#F5EFDE]/60 hover:text-[#C8A662]"
               >
-                {l.label}
+                <span className="text-[#C8A662]/50 mr-1">:</span>{l.label}
               </a>
             ))}
             <a
               href="#newsletter"
               onClick={() => setOpen(false)}
               data-testid="nav-mobile-rsvp"
-              className="mt-2 inline-flex w-fit items-center gap-2 px-5 py-2.5 bg-[#0F1B33] text-[#C8A662] font-body text-[12px] uppercase tracking-[0.28em]"
+              className="mt-2 inline-flex w-fit items-center gap-2 px-5 py-2.5 border border-[#C8A662]/40 text-[#C8A662] font-body text-[11px] uppercase tracking-[0.28em]"
             >
               Reserve a Seat
             </a>
