@@ -8,6 +8,7 @@ import Timeline   from "@/components/sections/Timeline";
 import Events     from "@/components/sections/Events";
 import Partners   from "@/components/sections/Partners";
 import Committee  from "@/components/sections/Committee";
+import Claude     from "@/components/sections/Claude";
 import Newsletter from "@/components/sections/Newsletter";
 import Footer     from "@/components/sections/Footer";
 
@@ -26,6 +27,7 @@ export default function Landing() {
       <Events />
       <Partners />
       <Committee />
+      <Claude />
       <Newsletter />
       <Footer />
     </main>

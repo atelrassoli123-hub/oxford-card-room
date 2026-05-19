@@ -2,6 +2,7 @@ from fastapi import FastAPI, APIRouter, HTTPException
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
+import asyncio
 import os
 import logging
 from pathlib import Path
@@ -9,6 +10,7 @@ from pydantic import BaseModel, Field, ConfigDict, EmailStr
 from typing import List, Optional
 import uuid
 from datetime import datetime, timezone
+from anthropic import Anthropic
 
 
 ROOT_DIR = Path(__file__).parent
@@ -18,6 +20,8 @@ load_dotenv(ROOT_DIR / '.env')
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
+
+anthropic_client = Anthropic(api_key=os.environ.get('ANTHROPIC_API_KEY', ''))
 
 app = FastAPI(title="The Oxford Card Room API")
 api_router = APIRouter(prefix="/api")
@@ -52,6 +56,15 @@ class NewsletterSubscriber(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     email: str
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+
+class ClaudeRequest(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    text: str = Field(min_length=1, max_length=1200)
+
+
+class ClaudeResponse(BaseModel):
+    output: str
 
 
 class EventInfo(BaseModel):
@@ -129,6 +142,25 @@ async def newsletter_subscribe(payload: NewsletterCreate):
     doc['created_at'] = doc['created_at'].isoformat()
     await db.newsletter.insert_one(doc)
     return sub
+
+
+@api_router.post("/claude", response_model=ClaudeResponse)
+async def claude_chat(payload: ClaudeRequest):
+    api_key = os.environ.get('ANTHROPIC_API_KEY')
+    if not api_key:
+        raise HTTPException(status_code=500, detail="Claude API key not configured")
+
+    try:
+        message = await asyncio.to_thread(
+            anthropic_client.messages.create,
+            model="claude-haiku-4-5-20251001",
+            max_tokens=300,
+            messages=[{"role": "user", "content": payload.text}],
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+    return {"output": message.content[0].text}
 
 
 @api_router.get("/newsletter", response_model=List[NewsletterSubscriber])
