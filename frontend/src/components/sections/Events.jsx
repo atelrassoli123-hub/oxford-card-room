@@ -9,7 +9,7 @@ const API = `${BACKEND_URL}/api`;
 
 const META = {
   "boxing-night-2027": {
-    img: "https://images.unsplash.com/photo-1566571310471-a98e5efb2d1a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&q=80&w=1200",
+    img: "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&q=80&w=1200",
     icon: Trophy,
     badge: "Flagship Night",
     badgeColor: "#C6A76A",
@@ -21,7 +21,7 @@ const META = {
     badgeColor: "#8fa8c8",
   },
   "poker-lecture-series": {
-    img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&q=80&w=1200",
+    img: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&q=80&w=1200",
     icon: BookOpen,
     badge: "Lecture Series",
     badgeColor: "#9a9eb0",
@@ -90,7 +90,7 @@ export default function Events() {
                       <img
                         src={meta.img}
                         alt={e.title}
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.8s] group-hover:scale-105 opacity-45 group-hover:opacity-65"
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.8s] group-hover:scale-105 opacity-60 group-hover:opacity-75"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-[#050816]/60 to-transparent" />
 
