@@ -10,7 +10,8 @@ const COMMITTEE = [
     initial: "MA",
     index: "01",
     img: "/oxford-card-room/committee/MIRSAID.jpg",
-    imgPosition: "object-top",
+    imgPosition: "object-center",
+    imgStyle: { objectPosition: "50% 25%", filter: "grayscale(1) contrast(1.05) brightness(1.05)" },
   },
   {
     role: "Vice President",
@@ -72,7 +73,7 @@ export default function Committee() {
                     src={m.img}
                     alt={m.name}
                     className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${m.imgPosition}`}
-                    style={{ filter: "grayscale(1) contrast(1.05) brightness(0.95)" }}
+                    style={m.imgStyle || { filter: "grayscale(1) contrast(1.05) brightness(0.95)" }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-transparent to-transparent" />
                   <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 40% at 50% 100%, rgba(198,167,106,0.07), transparent)" }} />
