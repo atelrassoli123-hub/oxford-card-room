@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/oxford-card-room/static/css/main.a3965157.css",
+    "main.js": "/oxford-card-room/static/js/main.d503b87e.js",
+    "index.html": "/oxford-card-room/index.html",
+    "main.a3965157.css.map": "/oxford-card-room/static/css/main.a3965157.css.map",
+    "main.d503b87e.js.map": "/oxford-card-room/static/js/main.d503b87e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a3965157.css",
+    "static/js/main.d503b87e.js"
+  ]
+}
