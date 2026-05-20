@@ -32,7 +32,7 @@ export default function Newsletter() {
     <section
       id="newsletter"
       data-testid="newsletter-section"
-      className="relative py-28 lg:py-48 bg-[#050816] overflow-hidden"
+      className="relative py-28 lg:py-48 bg-white overflow-hidden"
     >
       {/* Atmospheric background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,rgba(198,167,106,0.045),transparent_70%)]" />
@@ -54,14 +54,14 @@ export default function Newsletter() {
         </p>
 
         <h2
-          className="font-display text-[#F0EAD6] leading-[0.92] tracking-tight font-bold mb-8"
+          className="font-display text-[#1C1814] leading-[0.92] tracking-tight font-bold mb-8"
           style={{ fontSize: "clamp(44px, 7vw, 96px)" }}
         >
           Reserved<br />
           <span className="italic font-normal text-[#C6A76A]">for those who ask.</span>
         </h2>
 
-        <p className="font-body text-[#F0EAD6]/60 text-base md:text-lg leading-[1.85] max-w-xl mx-auto mb-16">
+        <p className="font-body text-[#1C1814]/60 text-base md:text-lg leading-[1.85] max-w-xl mx-auto mb-16">
           Leave your email and we'll write to you ahead of Michaelmas Term with
           membership details, event reservations, and a considered note on what
           the coming season holds. We write rarely. We write well.
@@ -73,7 +73,7 @@ export default function Newsletter() {
           data-testid="newsletter-form"
           className="max-w-lg mx-auto"
         >
-          <div className="flex flex-col sm:flex-row border border-[#F0EAD6]/[0.09] hover:border-[#C6A76A]/25 focus-within:border-[#C6A76A]/45 transition-colors duration-300">
+          <div className="flex flex-col sm:flex-row border border-[#C6A76A]/35 hover:border-[#C6A76A]/60 focus-within:border-[#C6A76A]/85 transition-colors duration-300 rounded">
             <input
               type="email"
               required
@@ -81,7 +81,7 @@ export default function Newsletter() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               data-testid="newsletter-input-email"
-              className="flex-1 bg-transparent outline-none px-6 py-5 text-[#F0EAD6] font-body text-base placeholder:text-[#F0EAD6]/18 min-w-0"
+              className="flex-1 bg-transparent outline-none px-6 py-5 text-[#1C1814] font-body text-base placeholder:text-[#1C1814]/18 min-w-0"
             />
             <button
               type="submit"
@@ -93,7 +93,7 @@ export default function Newsletter() {
               <ArrowRight size={12} strokeWidth={2} />
             </button>
           </div>
-          <p className="mt-5 font-body text-[9px] uppercase tracking-[0.45em] text-[#F0EAD6]/40">
+          <p className="mt-5 font-body text-[9px] uppercase tracking-[0.45em] text-[#1C1814]/40">
             Open to all Oxford students · No spam · Unsubscribe any time
           </p>
         </form>

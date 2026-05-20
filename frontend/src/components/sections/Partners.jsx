@@ -6,7 +6,7 @@ export default function Partners() {
     <section
       id="partners"
       data-testid="partners-section"
-      className="relative py-24 lg:py-40 bg-[#08090f] overflow-hidden"
+      className="relative py-24 lg:py-40 bg-[#F8F5EE] overflow-hidden"
     >
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_70%_40%,rgba(198,167,106,0.03),transparent)]" />
       <div className="absolute inset-0 grain opacity-20 pointer-events-none" />
@@ -20,7 +20,7 @@ export default function Partners() {
               :05 — Partners
             </p>
             <h2
-              className="font-display text-[#F0EAD6] leading-[0.95] tracking-tight font-bold"
+              className="font-display text-[#1C1814] leading-[0.95] tracking-tight font-bold"
               style={{ fontSize: "clamp(40px, 6vw, 78px)" }}
             >
               In good<br />
@@ -28,7 +28,7 @@ export default function Partners() {
             </h2>
           </Reveal>
           <Reveal as="div" delay={130} className="lg:col-span-5 lg:col-start-8 lg:pt-2 flex items-end">
-            <p className="font-body text-[#F0EAD6]/35 text-base leading-relaxed">
+            <p className="font-body text-[#1C1814]/35 text-base leading-relaxed">
               We work with partners whose values align with ours — intellectual
               rigour, strategic thinking, and a belief that the best games are
               played by interesting people.
@@ -51,14 +51,14 @@ export default function Partners() {
                 </p>
                 <div data-testid="sponsor-jump-trading-logo" className="mb-8">
                   <p
-                    className="font-display text-[#F0EAD6] font-bold tracking-tight leading-[0.9]"
+                    className="font-display text-[#1C1814] font-bold tracking-tight leading-[0.9]"
                     style={{ fontSize: "clamp(52px, 8vw, 100px)" }}
                   >
                     Jump
                     <span className="text-[#C6A76A] italic font-normal"> Trading</span>
                   </p>
                 </div>
-                <p className="font-body text-[#F0EAD6]/38 text-base leading-relaxed max-w-lg mb-10">
+                <p className="font-body text-[#1C1814]/38 text-base leading-relaxed max-w-lg mb-10">
                   A global quantitative trading firm with a longstanding interest
                   in probability, game theory, and the strategic disciplines that
                   poker exemplifies. Jump Trading's sponsorship underwrites our
@@ -85,10 +85,10 @@ export default function Partners() {
                     J
                   </span>
                   <div className="relative text-center">
-                    <p className="font-display text-3xl text-[#F0EAD6]/60 font-bold tracking-tight">Jump</p>
+                    <p className="font-display text-3xl text-[#1C1814]/60 font-bold tracking-tight">Jump</p>
                     <p className="font-body text-[8px] uppercase tracking-[0.5em] text-[#C6A76A]/35 mt-2">Trading</p>
                     <div className="mt-5 h-px w-10 mx-auto bg-[#C6A76A]/18" />
-                    <p className="font-body text-[8px] uppercase tracking-[0.45em] text-[#F0EAD6]/18 mt-4">
+                    <p className="font-body text-[8px] uppercase tracking-[0.45em] text-[#1C1814]/18 mt-4">
                       Michaelmas · 2027
                     </p>
                   </div>
@@ -100,7 +100,7 @@ export default function Partners() {
         </Reveal>
 
         {/* Sponsorship tiers */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#F0EAD6]/[0.04]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#C6A76A]/[0.1]">
           {[
             { name: "Founding",  price: "Bespoke",     note: "Year-long headline partner across every event and communication touchpoint." },
             { name: "Termly",    price: "On Request",  note: "Sponsor a single Michaelmas, Hilary, or Trinity term and one flagship evening." },
@@ -109,12 +109,12 @@ export default function Partners() {
             <Reveal key={t.name} delay={i * 70} as="div">
               <div
                 data-testid={`sponsor-tier-${t.name.toLowerCase()}`}
-                className="bg-[#08090f] p-8 lg:p-10 hover:bg-[#0c0d18] transition-colors duration-300"
+                className="bg-white p-8 lg:p-10 hover:bg-[#FDF8F0] transition-colors duration-300"
               >
                 <div className="font-body text-[8px] uppercase tracking-[0.5em] text-[#C6A76A]/30 mb-5">:Tier</div>
-                <h4 className="font-display text-2xl text-[#F0EAD6]/70 mb-2 font-bold">{t.name}</h4>
+                <h4 className="font-display text-2xl text-[#1C1814]/70 mb-2 font-bold">{t.name}</h4>
                 <div className="font-body text-[#C6A76A]/40 text-sm mb-5 tracking-wide">{t.price}</div>
-                <p className="font-body text-[#F0EAD6]/28 text-sm leading-relaxed">{t.note}</p>
+                <p className="font-body text-[#1C1814]/28 text-sm leading-relaxed">{t.note}</p>
               </div>
             </Reveal>
           ))}

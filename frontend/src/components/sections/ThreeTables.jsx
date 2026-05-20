@@ -83,9 +83,9 @@ export default function ThreeTables() {
     <section
       id="tables"
       data-testid="tables-section"
-      className="relative py-24 lg:py-40 bg-[#050816] overflow-hidden"
+      className="relative py-24 lg:py-40 bg-[#FFFEF9] overflow-hidden"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_50%,rgba(198,167,106,0.025),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_50%,rgba(198,167,106,0.06),transparent)]" />
       <div className="absolute inset-0 grain opacity-20 pointer-events-none" />
 
       <div className="relative max-w-[1400px] mx-auto px-6 lg:px-14">
@@ -97,7 +97,7 @@ export default function ThreeTables() {
               :02 — Three Kinds of Evening
             </p>
             <h2
-              className="font-display text-[#F0EAD6] leading-[0.95] tracking-tight font-bold"
+              className="font-display text-[#1C1814] leading-[0.95] tracking-tight font-bold"
               style={{ fontSize: "clamp(40px, 6vw, 80px)" }}
             >
               Three tables.
@@ -106,7 +106,7 @@ export default function ThreeTables() {
             </h2>
           </Reveal>
           <Reveal as="div" delay={130} className="lg:col-span-5 lg:col-start-8 lg:pt-4 flex items-end">
-            <p className="font-body text-[#F0EAD6]/60 text-base md:text-lg leading-relaxed">
+            <p className="font-body text-[#1C1814]/60 text-base md:text-lg leading-relaxed">
               The Oxford Card Room runs all three tables simultaneously on
               every members' night. Find the level that fits — or move between
               them as you grow. There's no hierarchy; only the game you want to play.
@@ -115,7 +115,7 @@ export default function ThreeTables() {
         </div>
 
         {/* Table selector — desktop: three columns */}
-        <div className="hidden lg:grid grid-cols-3 gap-px bg-[#F0EAD6]/[0.04] mb-px">
+        <div className="hidden lg:grid grid-cols-3 gap-px bg-[#C6A76A]/[0.12] mb-px rounded-t-lg overflow-hidden">
           {TABLES.map((t, i) => (
             <button
               key={t.id}
@@ -123,20 +123,20 @@ export default function ThreeTables() {
               data-testid={`table-tab-${t.id}`}
               className={`text-left px-8 py-6 transition-all duration-300 ${
                 active === i
-                  ? "bg-[#0c1022]"
-                  : "bg-[#050816] hover:bg-[#080b18]"
+                  ? "bg-white"
+                  : "bg-[#F8F4EC] hover:bg-[#F3EEE4]"
               }`}
             >
               <span
                 className={`font-body text-[8px] uppercase tracking-[0.5em] transition-colors ${
-                  active === i ? t.labelColor : "text-[#F0EAD6]/25"
+                  active === i ? t.labelColor : "text-[#1C1814]/35"
                 }`}
               >
                 :{t.index}
               </span>
               <p
                 className={`font-display text-2xl font-bold tracking-tight mt-1 transition-colors ${
-                  active === i ? "text-[#F0EAD6]" : "text-[#F0EAD6]/40"
+                  active === i ? "text-[#1C1814]" : "text-[#1C1814]/45"
                 }`}
               >
                 {t.name}
@@ -160,9 +160,9 @@ export default function ThreeTables() {
               style={{ position: active === i ? "relative" : "absolute", width: "100%" }}
             >
               <div
-                className="relative border border-[#F0EAD6]/[0.12] rounded-lg overflow-hidden"
+                className="relative border border-[#C6A76A]/25 rounded-b-lg overflow-hidden"
                 style={{
-                  background: `radial-gradient(ellipse 60% 80% at 80% 50%, ${t.bgFrom}, transparent), #08090f`,
+                  background: `radial-gradient(ellipse 60% 80% at 80% 50%, ${t.bgFrom}, transparent), #FFFFFF`,
                 }}
               >
                 {/* Big background number */}
@@ -184,7 +184,7 @@ export default function ThreeTables() {
                       :{t.index} — {t.name} {t.subtitle}
                     </p>
                     <h3
-                      className="font-display text-[#F0EAD6] font-bold tracking-tight leading-[0.95] mb-4"
+                      className="font-display text-[#1C1814] font-bold tracking-tight leading-[0.95] mb-4"
                       style={{ fontSize: "clamp(36px, 4vw, 58px)" }}
                     >
                       {t.name}
@@ -199,7 +199,7 @@ export default function ThreeTables() {
                     >
                       "{t.tagline}"
                     </p>
-                    <p className="font-body text-[#F0EAD6]/65 text-base leading-[1.9] max-w-xl mb-10">
+                    <p className="font-body text-[#1C1814]/65 text-base leading-[1.9] max-w-xl mb-10">
                       {t.description}
                     </p>
                     <p
@@ -224,7 +224,7 @@ export default function ThreeTables() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-[#050816]/70 to-[#050816]/25" />
                     <div className="absolute inset-0" style={{ background: `radial-gradient(ellipse 100% 55% at 50% 100%, ${t.bgFrom}, transparent)` }} />
                     <div className="relative z-10 flex flex-col justify-end h-full p-12 lg:p-16">
-                      <p className="font-body text-[9px] uppercase tracking-[0.5em] text-[#F0EAD6]/30 mb-8">
+                      <p className="font-body text-[9px] uppercase tracking-[0.5em] text-[#1C1814]/30 mb-8">
                         :What to expect
                       </p>
                       <ul className="space-y-5">
@@ -234,7 +234,7 @@ export default function ThreeTables() {
                               className="mt-1.5 flex-shrink-0 w-1 h-1 rounded-full"
                               style={{ background: t.accent }}
                             />
-                            <span className="font-body text-[#F0EAD6]/85 text-sm leading-relaxed">
+                            <span className="font-body text-[#1C1814]/85 text-sm leading-relaxed">
                               {d}
                             </span>
                           </li>
@@ -266,7 +266,7 @@ export default function ThreeTables() {
             <div
               key={t.id}
               data-testid={`table-accordion-${t.id}`}
-              className="border border-[#F0EAD6]/[0.07] overflow-hidden"
+              className="border border-[#C6A76A]/20 rounded-lg overflow-hidden"
             >
               <button
                 className="w-full text-left px-6 py-6 flex items-center justify-between"
@@ -279,13 +279,13 @@ export default function ThreeTables() {
                   >
                     :{t.index}
                   </span>
-                  <p className="font-display text-xl font-bold text-[#F0EAD6] tracking-tight mt-0.5">
+                  <p className="font-display text-xl font-bold text-[#1C1814] tracking-tight mt-0.5">
                     {t.name}
                     <span className="italic font-normal"> {t.subtitle}</span>
                   </p>
                 </div>
                 <span
-                  className="font-body text-lg text-[#F0EAD6]/30 transition-transform duration-300"
+                  className="font-body text-lg text-[#1C1814]/30 transition-transform duration-300"
                   style={{ transform: active === i ? "rotate(45deg)" : "rotate(0deg)" }}
                 >
                   +
@@ -296,7 +296,7 @@ export default function ThreeTables() {
                 className="table-panel-content"
                 style={{ display: active === i ? "block" : "none" }}
               >
-                <div className="px-6 pb-8 border-t border-[#F0EAD6]/[0.05]">
+                <div className="px-6 pb-8 border-t border-[#C6A76A]/20">
                   <div className="relative h-36 mt-5 mb-5 overflow-hidden">
                     <img
                       src={t.img}
@@ -312,7 +312,7 @@ export default function ThreeTables() {
                   >
                     "{t.tagline}"
                   </p>
-                  <p className="font-body text-[#F0EAD6]/45 text-sm leading-relaxed mb-6">
+                  <p className="font-body text-[#1C1814]/45 text-sm leading-relaxed mb-6">
                     {t.description}
                   </p>
                   <ul className="space-y-3">
@@ -322,7 +322,7 @@ export default function ThreeTables() {
                           className="mt-1.5 flex-shrink-0 w-1 h-1 rounded-full"
                           style={{ background: t.accent }}
                         />
-                        <span className="font-body text-[#F0EAD6]/40 text-sm">{d}</span>
+                        <span className="font-body text-[#1C1814]/40 text-sm">{d}</span>
                       </li>
                     ))}
                   </ul>

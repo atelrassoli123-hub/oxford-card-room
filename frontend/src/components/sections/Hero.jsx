@@ -24,10 +24,21 @@ export default function Hero() {
       data-testid="hero-section"
       className="relative min-h-screen w-full flex flex-col justify-between bg-[#050816] overflow-hidden"
     >
-      {/* ── Atmospheric background ───────────────────────── */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_20%_70%,rgba(198,167,106,0.055),transparent)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_85%_15%,rgba(90,50,140,0.07),transparent)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_100%,rgba(198,167,106,0.04),transparent)]" />
+      {/* ── Background cards photo ───────────────────────── */}
+      <div className="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1511193311914-0346f16efe90?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1200&q=80&w=1920"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ filter: "grayscale(0.4) contrast(1.08) brightness(0.38)" }}
+        />
+        <div className="absolute inset-0 bg-[#050816]/55" />
+      </div>
+
+      {/* ── Atmospheric overlays ─────────────────────────── */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_20%_70%,rgba(198,167,106,0.07),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_100%,rgba(198,167,106,0.05),transparent)]" />
 
       {/* ── Grain ────────────────────────────────────────── */}
       <div className="absolute inset-0 grain opacity-30 pointer-events-none" />

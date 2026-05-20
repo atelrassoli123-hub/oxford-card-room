@@ -75,7 +75,7 @@ export default function Timeline() {
     <section
       id="timeline"
       data-testid="timeline-section"
-      className="relative py-24 lg:py-40 bg-[#08090f] overflow-hidden"
+      className="relative py-24 lg:py-40 bg-[#F8F5EE] overflow-hidden"
     >
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_50%,rgba(198,167,106,0.025),transparent)]" />
       <div className="absolute inset-0 grain opacity-20 pointer-events-none" />
@@ -89,7 +89,7 @@ export default function Timeline() {
               :03 — Michaelmas Term Card
             </p>
             <h2
-              className="font-display text-[#F0EAD6] leading-[0.95] tracking-tight font-bold"
+              className="font-display text-[#1C1814] leading-[0.95] tracking-tight font-bold"
               style={{ fontSize: "clamp(40px, 6vw, 78px)" }}
             >
               Michaelmas<br />
@@ -97,7 +97,7 @@ export default function Timeline() {
             </h2>
           </Reveal>
           <Reveal as="div" delay={130} className="lg:col-span-5 lg:col-start-8 lg:pt-2 flex items-end">
-            <p className="font-body text-[#F0EAD6]/60 text-base md:text-lg leading-relaxed">
+            <p className="font-body text-[#1C1814]/60 text-base md:text-lg leading-relaxed">
               Eight weeks. One season. A members' evening every week,
               a lecture every fortnight, and two flagship nights bookending
               the term. Everything is open to members at every level.
@@ -133,21 +133,21 @@ export default function Timeline() {
                       <div
                         className={`relative px-6 py-5 transition-all duration-300 ${
                           w.flagship
-                            ? "border border-[#C6A76A]/50 bg-[#0c0d16] rounded group-hover:border-[#C6A76A]/80 group-hover:shadow-[0_0_20px_rgba(198,167,106,0.12)]"
-                            : "border border-[#F0EAD6]/[0.12] bg-[#050816] rounded group-hover:border-[#F0EAD6]/30"
+                            ? "border border-[#C6A76A]/50 bg-[#FDF8F0] rounded group-hover:border-[#C6A76A]/80 group-hover:shadow-[0_4px_20px_rgba(198,167,106,0.15)]"
+                            : "border border-[#C6A76A]/20 bg-white rounded group-hover:border-[#C6A76A]/50"
                         }`}
                       >
-                        <p className={`font-body text-[8px] uppercase tracking-[0.5em] mb-2 ${w.flagship ? "text-[#C6A76A]" : "text-[#F0EAD6]/25"}`}>
+                        <p className={`font-body text-[8px] uppercase tracking-[0.5em] mb-2 ${w.flagship ? "text-[#C6A76A]" : "text-[#1C1814]/25"}`}>
                           {w.flagship ? "★ Flagship · " : ""}{w.date}
                         </p>
-                        <h3 className={`font-display font-bold tracking-tight leading-tight text-lg ${w.flagship ? "text-[#C6A76A]" : "text-[#F0EAD6]/85"}`}>
+                        <h3 className={`font-display font-bold tracking-tight leading-tight text-lg ${w.flagship ? "text-[#C6A76A]" : "text-[#1C1814]/85"}`}>
                           {w.title}
                         </h3>
-                        <p className="font-body text-[10px] text-[#F0EAD6]/30 mt-1 uppercase tracking-[0.3em]">
+                        <p className="font-body text-[10px] text-[#1C1814]/30 mt-1 uppercase tracking-[0.3em]">
                           {w.sub}
                         </p>
                         <div className={`overflow-hidden transition-all duration-500 ${hover === w.week ? "max-h-32 opacity-100 mt-4" : "max-h-0 opacity-0"}`}>
-                          <p className="font-body text-[#F0EAD6]/65 text-[13px] leading-relaxed border-t border-[#F0EAD6]/[0.12] pt-4">
+                          <p className="font-body text-[#1C1814]/65 text-[13px] leading-relaxed border-t border-[#F0EAD6]/[0.12] pt-4">
                             {w.detail}
                           </p>
                         </div>
@@ -161,7 +161,7 @@ export default function Timeline() {
                         <div className={`transition-all duration-300 ${
                           w.flagship
                             ? "w-2.5 h-2.5 bg-[#C6A76A] shadow-[0_0_12px_3px_rgba(198,167,106,0.45)] rotate-45"
-                            : "w-1.5 h-1.5 bg-[#08090f] border border-[#C6A76A]/45 rounded-full"
+                            : "w-1.5 h-1.5 bg-[#F8F5EE] border border-[#C6A76A]/45 rounded-full"
                         } ${hover === w.week ? "scale-150" : ""}`} />
                       </div>
                     </div>
@@ -180,28 +180,28 @@ export default function Timeline() {
                 data-testid={`timeline-mobile-week-${w.week}`}
                 className={`px-6 py-5 border ${
                   w.flagship
-                    ? "border-[#C6A76A]/40 bg-[#0c0d16]"
-                    : "border-[#F0EAD6]/[0.07] bg-[#050816]"
+                    ? "border-[#C6A76A]/40 bg-[#FDF8F0]"
+                    : "border-[#C6A76A]/20 bg-white"
                 }`}
               >
                 <p
                   className={`font-body text-[8px] uppercase tracking-[0.5em] mb-1.5 ${
-                    w.flagship ? "text-[#C6A76A]" : "text-[#F0EAD6]/25"
+                    w.flagship ? "text-[#C6A76A]" : "text-[#1C1814]/25"
                   }`}
                 >
                   {w.flagship ? "★ Flagship · " : ""}{w.date}
                 </p>
                 <h3
                   className={`font-display font-bold tracking-tight text-lg leading-tight mb-1 ${
-                    w.flagship ? "text-[#C6A76A]" : "text-[#F0EAD6]/70"
+                    w.flagship ? "text-[#C6A76A]" : "text-[#1C1814]/70"
                   }`}
                 >
                   {w.title}
                 </h3>
-                <p className="font-body text-[10px] text-[#F0EAD6]/30 uppercase tracking-[0.3em] mb-3">
+                <p className="font-body text-[10px] text-[#1C1814]/30 uppercase tracking-[0.3em] mb-3">
                   {w.sub}
                 </p>
-                <p className="font-body text-[#F0EAD6]/35 text-[13px] leading-relaxed">
+                <p className="font-body text-[#1C1814]/35 text-[13px] leading-relaxed">
                   {w.detail}
                 </p>
               </div>
@@ -213,7 +213,7 @@ export default function Timeline() {
         <Reveal delay={200}>
           <div className="mt-16 flex items-center gap-6">
             <div className="flex-1 h-px bg-[#F0EAD6]/[0.05]" />
-            <p className="font-body text-[9px] uppercase tracking-[0.5em] text-[#F0EAD6]/20 whitespace-nowrap">
+            <p className="font-body text-[9px] uppercase tracking-[0.5em] text-[#1C1814]/20 whitespace-nowrap">
               Michaelmas Term · Eight Weeks · Oxford University
             </p>
             <div className="flex-1 h-px bg-[#F0EAD6]/[0.05]" />

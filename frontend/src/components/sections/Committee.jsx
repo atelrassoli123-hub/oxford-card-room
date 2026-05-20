@@ -31,7 +31,7 @@ export default function Committee() {
     <section
       id="committee"
       data-testid="committee-section"
-      className="relative py-24 lg:py-40 bg-[#050816] overflow-hidden"
+      className="relative py-24 lg:py-40 bg-[#F8F4EC] overflow-hidden"
     >
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_30%_60%,rgba(198,167,106,0.025),transparent)]" />
       <div className="absolute inset-0 grain opacity-20 pointer-events-none" />
@@ -45,7 +45,7 @@ export default function Committee() {
               :06 — The Committee
             </p>
             <h2
-              className="font-display text-[#F0EAD6] leading-[0.95] tracking-tight font-bold"
+              className="font-display text-[#1C1814] leading-[0.95] tracking-tight font-bold"
               style={{ fontSize: "clamp(40px, 6vw, 78px)" }}
             >
               The founding<br />
@@ -53,7 +53,7 @@ export default function Committee() {
             </h2>
           </Reveal>
           <Reveal as="div" delay={130} className="lg:col-span-5 lg:col-start-8 flex items-end">
-            <p className="font-body text-[#F0EAD6]/35 text-base leading-relaxed">
+            <p className="font-body text-[#1C1814]/35 text-base leading-relaxed">
               The society is run by two student officers. Applications for
               additional committee positions open in Trinity Term 2028.
             </p>
@@ -61,12 +61,12 @@ export default function Committee() {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#F0EAD6]/[0.04]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#C6A76A]/[0.1]">
           {COMMITTEE.map((m, i) => (
             <Reveal key={m.name} delay={i * 120} as="div">
               <article
                 data-testid={`committee-card-${m.role.toLowerCase()}`}
-                className="group relative bg-[#050816] hover:bg-[#080b18] rounded-lg transition-all duration-500 overflow-hidden hover:shadow-[0_4px_40px_rgba(198,167,106,0.09)]"
+                className="group relative bg-white hover:bg-[#FDF8F0] rounded-lg transition-all duration-500 overflow-hidden hover:shadow-[0_4px_40px_rgba(198,167,106,0.09)]"
               >
                 {/* Photo area */}
                 <div className="relative h-[480px] bg-[#08090f] overflow-hidden">
@@ -93,12 +93,12 @@ export default function Committee() {
                     :{m.roleLabel}
                   </p>
                   <h3
-                    className="font-display text-[#F0EAD6] leading-tight tracking-tight mb-5 font-bold"
+                    className="font-display text-[#1C1814] leading-tight tracking-tight mb-5 font-bold"
                     style={{ fontSize: "clamp(28px, 3vw, 40px)" }}
                   >
                     {m.name}
                   </h3>
-                  <p className="font-body text-[#F0EAD6]/65 text-[15px] leading-[1.8]">
+                  <p className="font-body text-[#1C1814]/65 text-[15px] leading-[1.8]">
                     {m.bio}
                   </p>
                 </div>
@@ -114,7 +114,7 @@ export default function Committee() {
               <p className="font-body text-[9px] uppercase tracking-[0.5em] text-[#C6A76A]/40 mb-2">
                 :Open Positions
               </p>
-              <p className="font-body text-[#F0EAD6]/40 text-sm leading-relaxed">
+              <p className="font-body text-[#1C1814]/40 text-sm leading-relaxed">
                 Treasury, Events, and Social Secretaries. Applications open Trinity Term 2028.
               </p>
             </div>

@@ -53,7 +53,7 @@ export default function Nav() {
         visible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
       } ${
         scrolled
-          ? "bg-[#050816]/92 backdrop-blur-2xl border-b border-[#F0EAD6]/[0.05]"
+          ? "bg-white/96 backdrop-blur-2xl border-b border-[#C6A76A]/20 shadow-sm"
           : "bg-transparent"
       }`}
     >
@@ -74,7 +74,7 @@ export default function Nav() {
               className={`relative font-body text-[10px] uppercase tracking-[0.38em] transition-all duration-300 pb-0.5 ${
                 active === l.href
                   ? "text-[#C6A76A]"
-                  : "text-[#F0EAD6]/60 hover:text-[#F0EAD6]/90"
+                  : "text-[#1C1814]/60 hover:text-[#1C1814]/90"
               }`}
             >
               {active === l.href && (
@@ -89,7 +89,7 @@ export default function Nav() {
         <a
           href="#newsletter"
           data-testid="nav-rsvp-button"
-          className="hidden lg:inline-flex items-center gap-3 px-5 py-2.5 border border-[#C6A76A]/22 hover:border-[#C6A76A]/55 hover:bg-[#C6A76A]/5 text-[#C6A76A]/65 hover:text-[#C6A76A] font-body text-[9px] uppercase tracking-[0.38em] transition-all duration-300"
+          className="hidden lg:inline-flex items-center gap-3 px-5 py-2.5 rounded border border-[#C6A76A]/40 hover:border-[#C6A76A]/80 hover:bg-[#C6A76A]/8 text-[#C6A76A] hover:text-[#C6A76A] font-body text-[9px] uppercase tracking-[0.38em] transition-all duration-300"
         >
           Join
           <span className="w-3 h-px bg-current" />
@@ -109,7 +109,7 @@ export default function Nav() {
       {/* Mobile menu */}
       <div
         data-testid="nav-mobile-menu"
-        className={`lg:hidden overflow-hidden transition-all duration-500 bg-[#050816]/97 backdrop-blur-2xl ${
+        className={`lg:hidden overflow-hidden transition-all duration-500 bg-white/98 backdrop-blur-2xl ${
           open ? "max-h-[400px] border-b border-[#F0EAD6]/[0.05]" : "max-h-0"
         }`}
       >
@@ -121,7 +121,7 @@ export default function Nav() {
               onClick={() => setOpen(false)}
               data-testid={`nav-mobile-link-${l.label.toLowerCase()}`}
               className={`font-body text-sm uppercase tracking-[0.35em] transition-colors ${
-                active === l.href ? "text-[#C6A76A]" : "text-[#F0EAD6]/60 hover:text-[#F0EAD6]/90"
+                active === l.href ? "text-[#C6A76A]" : "text-[#1C1814]/60 hover:text-[#1C1814]/90"
               }`}
             >
               {l.label}

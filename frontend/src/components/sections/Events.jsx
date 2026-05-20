@@ -45,7 +45,7 @@ export default function Events() {
     <section
       id="events"
       data-testid="events-section"
-      className="relative py-24 lg:py-40 bg-[#050816] overflow-hidden"
+      className="relative py-24 lg:py-40 bg-[#FFFEF9] overflow-hidden"
     >
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_40%_at_50%_0%,rgba(198,167,106,0.03),transparent)]" />
 
@@ -58,7 +58,7 @@ export default function Events() {
               :04 — Signature Nights
             </p>
             <h2
-              className="font-display text-[#F0EAD6] leading-[0.95] tracking-tight font-bold"
+              className="font-display text-[#1C1814] leading-[0.95] tracking-tight font-bold"
               style={{ fontSize: "clamp(40px, 6vw, 78px)" }}
             >
               Three kinds of<br />
@@ -66,7 +66,7 @@ export default function Events() {
             </h2>
           </Reveal>
           <Reveal as="div" delay={130} className="lg:col-span-5 lg:col-start-8">
-            <p className="font-body text-[#F0EAD6]/60 text-base leading-relaxed">
+            <p className="font-body text-[#1C1814]/60 text-base leading-relaxed">
               Sign-ups open four weeks before each event. Members take
               priority, and there's almost always a seat for a guest.
             </p>
@@ -75,7 +75,7 @@ export default function Events() {
 
         {/* Event grid */}
         {events.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#F0EAD6]/[0.04]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#C6A76A]/[0.1]">
             {events.map((e, idx) => {
               const meta = META[e.id] || META["regular-poker-night"];
               const Icon = meta.icon;
@@ -83,7 +83,7 @@ export default function Events() {
                 <Reveal key={e.id} delay={idx * 80} as="div">
                   <article
                     data-testid={`event-card-${e.id}`}
-                    className="relative group flex flex-col bg-[#050816] hover:bg-[#080b16] rounded-lg overflow-hidden transition-all duration-500 h-full hover:shadow-[0_4px_32px_rgba(0,0,0,0.4)]"
+                    className="relative group flex flex-col bg-white hover:bg-[#FDF8F0] rounded-lg overflow-hidden transition-all duration-500 h-full hover:shadow-[0_4px_32px_rgba(0,0,0,0.4)]"
                   >
                     {/* Image */}
                     <div className="relative h-52 overflow-hidden">
@@ -106,14 +106,14 @@ export default function Events() {
 
                     {/* Content */}
                     <div className="flex flex-col flex-1 p-8">
-                      <div className="font-body text-[8px] uppercase tracking-[0.5em] text-[#F0EAD6]/25 mb-5">
+                      <div className="font-body text-[8px] uppercase tracking-[0.5em] text-[#1C1814]/25 mb-5">
                         {e.date} · {e.venue}
                       </div>
 
-                      <h3 className="font-display text-2xl md:text-3xl text-[#F0EAD6] leading-tight tracking-tight mb-4 font-bold">
+                      <h3 className="font-display text-2xl md:text-3xl text-[#1C1814] leading-tight tracking-tight mb-4 font-bold">
                         {e.title}
                       </h3>
-                      <p className="font-body text-[#F0EAD6]/60 text-sm leading-relaxed mb-8 flex-1">
+                      <p className="font-body text-[#1C1814]/60 text-sm leading-relaxed mb-8 flex-1">
                         {e.description}
                       </p>
 
@@ -135,14 +135,14 @@ export default function Events() {
           </div>
         ) : (
           /* Placeholder state while loading */
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#F0EAD6]/[0.04]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#C6A76A]/[0.1]">
             {[
               { label: "The Knockout Night", sub: "Boxing & Poker · Flagship", badge: "Week IV", detail: "Three sanctioned bouts, a friendly book, and a four-table tournament. The Card Room's most anticipated evening.", img: "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&q=80&w=1200", badgeColor: "#C6A76A" },
               { label: "Members' Night", sub: "All Tables · Weekly", badge: "Every Week", detail: "Our standing evening. All three tables open simultaneously. Simply come, take your seat, and play.", img: "https://images.unsplash.com/photo-1511193311914-0346f16efe90?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&q=80&w=1200", badgeColor: "#8fa8c8" },
               { label: "The Lecture Series", sub: "Theory & Practice", badge: "Fortnightly", detail: "Three lectures over the term — poker fundamentals, tournament play, and game theory. Open to all members.", img: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&q=80&w=1200", badgeColor: "#9a9eb0" },
             ].map((p, idx) => (
               <Reveal key={p.label} delay={idx * 80} as="div">
-                <article className="relative group flex flex-col bg-[#050816] hover:bg-[#080b16] rounded-lg overflow-hidden transition-all duration-500 h-full hover:shadow-[0_4px_32px_rgba(0,0,0,0.4)]">
+                <article className="relative group flex flex-col bg-white hover:bg-[#FDF8F0] rounded-lg overflow-hidden transition-all duration-500 h-full hover:shadow-[0_4px_32px_rgba(0,0,0,0.4)]">
                   <div className="relative h-52 overflow-hidden">
                     <img
                       src={p.img}
@@ -158,13 +158,13 @@ export default function Events() {
                     </div>
                   </div>
                   <div className="flex flex-col flex-1 p-8">
-                    <h3 className="font-display text-2xl md:text-3xl text-[#F0EAD6]/80 leading-tight tracking-tight mb-3 font-bold">
+                    <h3 className="font-display text-2xl md:text-3xl text-[#1C1814]/80 leading-tight tracking-tight mb-3 font-bold">
                       {p.label}
                     </h3>
-                    <p className="font-body text-[9px] uppercase tracking-[0.4em] text-[#F0EAD6]/25 mb-5">
+                    <p className="font-body text-[9px] uppercase tracking-[0.4em] text-[#1C1814]/25 mb-5">
                       {p.sub}
                     </p>
-                    <p className="font-body text-[#F0EAD6]/60 text-sm leading-relaxed flex-1">
+                    <p className="font-body text-[#1C1814]/60 text-sm leading-relaxed flex-1">
                       {p.detail}
                     </p>
                     <div className="mt-8 pt-6 border-t border-[#F0EAD6]/[0.05]">
