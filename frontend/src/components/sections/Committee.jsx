@@ -66,7 +66,7 @@ export default function Committee() {
             <Reveal key={m.name} delay={i * 120} as="div">
               <article
                 data-testid={`committee-card-${m.role.toLowerCase()}`}
-                className="group relative bg-[#050816] hover:bg-[#080b16] transition-all duration-500 overflow-hidden"
+                className="group relative bg-[#050816] hover:bg-[#080b18] rounded-lg transition-all duration-500 overflow-hidden hover:shadow-[0_4px_40px_rgba(198,167,106,0.09)]"
               >
                 {/* Photo area */}
                 <div className="relative h-[480px] bg-[#08090f] overflow-hidden">
@@ -98,7 +98,7 @@ export default function Committee() {
                   >
                     {m.name}
                   </h3>
-                  <p className="font-body text-[#F0EAD6]/38 text-[15px] leading-[1.8]">
+                  <p className="font-body text-[#F0EAD6]/65 text-[15px] leading-[1.8]">
                     {m.bio}
                   </p>
                 </div>

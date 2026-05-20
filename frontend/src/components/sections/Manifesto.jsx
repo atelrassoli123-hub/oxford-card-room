@@ -43,7 +43,7 @@ export default function Manifesto() {
         {/* Two-column body */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
           <Reveal delay={250}>
-            <p className="font-body text-[#F0EAD6]/50 text-base md:text-lg leading-[1.8] tracking-wide">
+            <p className="font-body text-[#F0EAD6]/70 text-base md:text-lg leading-[1.8] tracking-wide">
               The kind where the conversation matters as much as the game.
               Where a first-year and a finalist sit at the same felt,
               bound not by year or subject but by the willingness to think
@@ -51,7 +51,7 @@ export default function Manifesto() {
             </p>
           </Reveal>
           <Reveal delay={350}>
-            <p className="font-body text-[#F0EAD6]/35 text-base leading-[1.8] tracking-wide">
+            <p className="font-body text-[#F0EAD6]/55 text-base leading-[1.8] tracking-wide">
               The Oxford Card Room was founded on a simple premise: that poker,
               played seriously and surrounded by interesting people, is one of
               the finest intellectual games a student society can offer.

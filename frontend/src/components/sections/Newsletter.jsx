@@ -61,7 +61,7 @@ export default function Newsletter() {
           <span className="italic font-normal text-[#C6A76A]">for those who ask.</span>
         </h2>
 
-        <p className="font-body text-[#F0EAD6]/38 text-base md:text-lg leading-[1.85] max-w-xl mx-auto mb-16">
+        <p className="font-body text-[#F0EAD6]/60 text-base md:text-lg leading-[1.85] max-w-xl mx-auto mb-16">
           Leave your email and we'll write to you ahead of Michaelmas Term with
           membership details, event reservations, and a considered note on what
           the coming season holds. We write rarely. We write well.
@@ -93,7 +93,7 @@ export default function Newsletter() {
               <ArrowRight size={12} strokeWidth={2} />
             </button>
           </div>
-          <p className="mt-5 font-body text-[9px] uppercase tracking-[0.45em] text-[#F0EAD6]/18">
+          <p className="mt-5 font-body text-[9px] uppercase tracking-[0.45em] text-[#F0EAD6]/40">
             Open to all Oxford students · No spam · Unsubscribe any time
           </p>
         </form>

@@ -17,7 +17,7 @@ const TABLES = [
       "Beginners' Lecture Series included",
     ],
     atmosphere: "Warm. Patient. Genuinely welcoming.",
-    img: "https://images.unsplash.com/photo-1530479220000-c3e4537f84d6?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=700&q=80&w=700",
+    img: "https://images.unsplash.com/photo-1541278107931-e006523892df?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=700&q=80&w=700",
     accent: "#C6A76A",
     bgFrom: "rgba(198,167,106,0.06)",
     bgTo:   "rgba(198,167,106,0.01)",
@@ -65,7 +65,7 @@ const TABLES = [
       "Jump Trading underwritten",
     ],
     atmosphere: "Focused. Rigorous. Rewarding.",
-    img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=700&q=80&w=700",
+    img: "https://images.unsplash.com/photo-1509114397022-ed747cca3f65?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=700&q=80&w=700",
     accent: "#9a3545",
     bgFrom: "rgba(154,53,69,0.06)",
     bgTo:   "rgba(154,53,69,0.01)",
@@ -106,7 +106,7 @@ export default function ThreeTables() {
             </h2>
           </Reveal>
           <Reveal as="div" delay={130} className="lg:col-span-5 lg:col-start-8 lg:pt-4 flex items-end">
-            <p className="font-body text-[#F0EAD6]/35 text-base md:text-lg leading-relaxed">
+            <p className="font-body text-[#F0EAD6]/60 text-base md:text-lg leading-relaxed">
               The Oxford Card Room runs all three tables simultaneously on
               every members' night. Find the level that fits — or move between
               them as you grow. There's no hierarchy; only the game you want to play.
@@ -160,7 +160,7 @@ export default function ThreeTables() {
               style={{ position: active === i ? "relative" : "absolute", width: "100%" }}
             >
               <div
-                className="relative border border-[#F0EAD6]/[0.07] overflow-hidden"
+                className="relative border border-[#F0EAD6]/[0.12] rounded-lg overflow-hidden"
                 style={{
                   background: `radial-gradient(ellipse 60% 80% at 80% 50%, ${t.bgFrom}, transparent), #08090f`,
                 }}
@@ -199,7 +199,7 @@ export default function ThreeTables() {
                     >
                       "{t.tagline}"
                     </p>
-                    <p className="font-body text-[#F0EAD6]/45 text-base leading-[1.9] max-w-xl mb-10">
+                    <p className="font-body text-[#F0EAD6]/65 text-base leading-[1.9] max-w-xl mb-10">
                       {t.description}
                     </p>
                     <p
@@ -234,7 +234,7 @@ export default function ThreeTables() {
                               className="mt-1.5 flex-shrink-0 w-1 h-1 rounded-full"
                               style={{ background: t.accent }}
                             />
-                            <span className="font-body text-[#F0EAD6]/70 text-sm leading-relaxed">
+                            <span className="font-body text-[#F0EAD6]/85 text-sm leading-relaxed">
                               {d}
                             </span>
                           </li>

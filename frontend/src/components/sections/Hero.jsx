@@ -104,7 +104,7 @@ export default function Hero() {
         <div className="overflow-hidden mb-12">
           <p
             data-testid="hero-tagline"
-            className={`font-body text-[#F0EAD6]/45 text-base md:text-lg max-w-[380px] leading-relaxed tracking-wide ${loaded ? "mask-reveal delay-500" : "opacity-0"}`}
+            className={`font-body text-[#F0EAD6]/65 text-base md:text-lg max-w-[380px] leading-relaxed tracking-wide ${loaded ? "mask-reveal delay-500" : "opacity-0"}`}
           >
             Oxford's poker society — three tables, one season,<br className="hidden md:block" /> every level welcome.
           </p>
@@ -118,7 +118,7 @@ export default function Hero() {
           <a
             href="#tables"
             data-testid="hero-cta-events"
-            className="group inline-flex items-center gap-4 px-8 py-4 bg-[#C6A76A] hover:bg-[#d4b87a] text-[#050816] font-body text-[10px] uppercase tracking-[0.4em] transition-all duration-300 font-semibold"
+            className="group inline-flex items-center gap-4 px-8 py-4 rounded bg-[#C6A76A] hover:bg-[#d4b87a] hover:shadow-[0_0_28px_rgba(198,167,106,0.35)] text-[#050816] font-body text-[10px] uppercase tracking-[0.4em] transition-all duration-300 font-semibold"
           >
             Discover the Society
             <span className="inline-block w-4 h-px bg-current group-hover:w-7 transition-all duration-300" />
@@ -126,7 +126,7 @@ export default function Hero() {
           <a
             href="#overview"
             data-testid="hero-cta-learn-more"
-            className="inline-flex items-center gap-4 px-8 py-4 border border-[#F0EAD6]/12 hover:border-[#C6A76A]/45 text-[#F0EAD6]/50 hover:text-[#C6A76A] font-body text-[10px] uppercase tracking-[0.4em] transition-all duration-300"
+            className="inline-flex items-center gap-4 px-8 py-4 rounded border border-[#F0EAD6]/20 hover:border-[#C6A76A]/55 text-[#F0EAD6]/65 hover:text-[#C6A76A] font-body text-[10px] uppercase tracking-[0.4em] transition-all duration-300"
           >
             Our Philosophy
           </a>

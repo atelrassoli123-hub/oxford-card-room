@@ -74,7 +74,7 @@ export default function Nav() {
               className={`relative font-body text-[10px] uppercase tracking-[0.38em] transition-all duration-300 pb-0.5 ${
                 active === l.href
                   ? "text-[#C6A76A]"
-                  : "text-[#F0EAD6]/45 hover:text-[#F0EAD6]/80"
+                  : "text-[#F0EAD6]/60 hover:text-[#F0EAD6]/90"
               }`}
             >
               {active === l.href && (
@@ -121,7 +121,7 @@ export default function Nav() {
               onClick={() => setOpen(false)}
               data-testid={`nav-mobile-link-${l.label.toLowerCase()}`}
               className={`font-body text-sm uppercase tracking-[0.35em] transition-colors ${
-                active === l.href ? "text-[#C6A76A]" : "text-[#F0EAD6]/45 hover:text-[#F0EAD6]/80"
+                active === l.href ? "text-[#C6A76A]" : "text-[#F0EAD6]/60 hover:text-[#F0EAD6]/90"
               }`}
             >
               {l.label}

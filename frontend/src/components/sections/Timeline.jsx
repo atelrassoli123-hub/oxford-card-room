@@ -97,7 +97,7 @@ export default function Timeline() {
             </h2>
           </Reveal>
           <Reveal as="div" delay={130} className="lg:col-span-5 lg:col-start-8 lg:pt-2 flex items-end">
-            <p className="font-body text-[#F0EAD6]/35 text-base md:text-lg leading-relaxed">
+            <p className="font-body text-[#F0EAD6]/60 text-base md:text-lg leading-relaxed">
               Eight weeks. One season. A members' evening every week,
               a lecture every fortnight, and two flagship nights bookending
               the term. Everything is open to members at every level.
@@ -133,21 +133,21 @@ export default function Timeline() {
                       <div
                         className={`relative px-6 py-5 transition-all duration-300 ${
                           w.flagship
-                            ? "border border-[#C6A76A]/40 bg-[#0c0d16] group-hover:border-[#C6A76A]/70"
-                            : "border border-[#F0EAD6]/[0.07] bg-[#050816] group-hover:border-[#F0EAD6]/15"
+                            ? "border border-[#C6A76A]/50 bg-[#0c0d16] rounded group-hover:border-[#C6A76A]/80 group-hover:shadow-[0_0_20px_rgba(198,167,106,0.12)]"
+                            : "border border-[#F0EAD6]/[0.12] bg-[#050816] rounded group-hover:border-[#F0EAD6]/30"
                         }`}
                       >
                         <p className={`font-body text-[8px] uppercase tracking-[0.5em] mb-2 ${w.flagship ? "text-[#C6A76A]" : "text-[#F0EAD6]/25"}`}>
                           {w.flagship ? "★ Flagship · " : ""}{w.date}
                         </p>
-                        <h3 className={`font-display font-bold tracking-tight leading-tight text-lg ${w.flagship ? "text-[#C6A76A]" : "text-[#F0EAD6]/70"}`}>
+                        <h3 className={`font-display font-bold tracking-tight leading-tight text-lg ${w.flagship ? "text-[#C6A76A]" : "text-[#F0EAD6]/85"}`}>
                           {w.title}
                         </h3>
                         <p className="font-body text-[10px] text-[#F0EAD6]/30 mt-1 uppercase tracking-[0.3em]">
                           {w.sub}
                         </p>
                         <div className={`overflow-hidden transition-all duration-500 ${hover === w.week ? "max-h-32 opacity-100 mt-4" : "max-h-0 opacity-0"}`}>
-                          <p className="font-body text-[#F0EAD6]/40 text-[13px] leading-relaxed border-t border-[#F0EAD6]/[0.07] pt-4">
+                          <p className="font-body text-[#F0EAD6]/65 text-[13px] leading-relaxed border-t border-[#F0EAD6]/[0.12] pt-4">
                             {w.detail}
                           </p>
                         </div>
